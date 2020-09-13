@@ -1,0 +1,28 @@
+nav {
+    display: none;
+}
+
+section {
+    display: none;
+}
+
+footer {
+    display: none;
+}
+
+#Perspective {
+    display: none;
+}
+
+.old-ie.tour {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.old-ie.tour p {
+    margin-bottom: 3em;
+}
+
+.old-ie.tour img {
+    border: 1px solid #CCCCCC;
+}

@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>keybr.com next</title>
+    <link type="text/css" rel="stylesheet" href="res/css/font-awesome-4.0.3.min.css"/>
+    <link type="text/css" rel="stylesheet" href="res/css/animate-2.1.1.min.css"/>
+    <link type="text/css" rel="stylesheet" href="res/css/trip-1.2.4.min.css"/>
+    <link type="text/css" rel="stylesheet" href="res/css/css-x.min.css"/>
+    <script type="text/javascript" src="res/js/jquery-2.0.3.min.js" defer></script>
+    <script type="text/javascript" src="res/js/trip-1.2.4.min.js" defer></script>
+    <script type="text/javascript" src="res/js/svg-0.32.min.js" defer></script>
+    <script type="text/javascript" src="res/js/IndexedDBShim-0.1.2.min.js" defer></script>
+    <script type="text/javascript" src="res/js/js-x.min.js" defer></script>
+    <!--[if lte IE 9]>
+    <link type="text/css" rel="stylesheet" href="res/css/ie9-.css"/>
+    <script type="text/javascript" src="res/js/ie9-.js"></script>
+    <![endif]-->
+</head>
+
+<body class="vertical flex">
+<!--[if lte IE 9]>
+<div style="width: 40em; margin: 0 auto; padding: 5em;">
+    <h1>A Modern Browser is Required</h1>
+
+    <p>You are using an old and obsolete version of Internet Explorer. Unfortunately, this
+        application will not work in it. We recommend you to install the newest version of <a
+                href="http://ie.microsoft.com/" target="download">Internet Explorer</a> or switch to
+        <a href="https://www.mozilla.org/" target="download">Mozilla Firefox</a> or <a
+                href="https://www.google.by/search?q=google+chrome" target="download">Google
+            Chrome</a>.</p>
+
+    <p>Or you may simply go to the <a href="/">flash-based legacy web site</a>.</p>
+</div>
+<![endif]-->
+<div id="perspective" class="fill">
+    <div class="vertical flex justify-center align-center center">
+        <div class="banner">
+            <h1>Loading...</h1>
+
+            <p>The application is loading, and will arrive shortly.</p>
+        </div>
+
+        <noscript class="banner">
+            <h1>JavaScript is Disabled</h1>
+
+            <p>Please enable JavaScript to use this web application.</p>
+        </noscript>
+    </div>
+</div>
+
+<nav>
+    <ul>
+        <li><a class="link game" href="#game">Practice Typing
+            <small>Play the game</small>
+        </a></li>
+        <li><a class="link profile" href="#profile">My Profile
+            <small>Detailed typing statistics</small>
+        </a></li>
+        <li><a class="link help" href="#help">How to Type
+            <small>Instruction manual</small>
+        </a></li>
+        <li><a class="link extras" href="#extras">Extras
+            <small>Few more goodies</small>
+        </a></li>
+        <li class="hidden"><a class="link invaders" href="#invaders">Invaders!
+            <small>A time killer for bored people</small>
+        </a></li>
+        <li><a class="link legacy" href="/">Legacy App
+            <small>Back to the legacy version</small>
+        </a></li>
+    </ul>
+</nav>
+
+<section class="page game animated fadeInUp" data-url="game">
+    <div id="game" class="window">
+        <div id="indicators">
+            <div class="horizontal flex">
+                <div class="field grid-cell">
+                    <div class="primary"><span class="name">Speed:</span>
+                    <span id="g-speed" class="value big speed-unit-title"
+                          title="Typing Speed">0</span></div>
+                    <div class="secondary small"><span class="name">Gain:</span>
+                    <span id="g-speed-gain" class="value gain"
+                          title="Difference from the average value">0</span></div>
+                </div>
+                <div class="field grid-cell">
+                    <div class="primary"><span class="name">Errors:</span>
+                    <span id="g-errors" class="value big"
+                          title="Number of errors">0</span></div>
+                    <div class="secondary small"><span class="name">Gain:</span>
+                    <span id="g-errors-gain" class="value gain"
+                          title="Difference from the average value">0</span></div>
+                </div>
+                <div class="field grid-cell">
+                    <div class="primary"><span class="name">Score:</span>
+                    <span id="g-score" class="value big"
+                          title="Abstract points">0</span></div>
+                    <div class="secondary small"><span class="name">Gain:</span>
+                    <span id="g-score-gain" class="value gain"
+                          title="Difference from the average value">0</span></div>
+                </div>
+                <div class="field fill grid-cell" id="g-achievements"
+                     title="Latest achievements"></div>
+                <div class="grid-cell">
+                    <a class="button profile" href="#profile"
+                       title="See advanced statistics"><i class="fa fa-bar-chart-o"></i> Profile</a>
+                    <a class="button settings" href="#settings"
+                       title="Configure lessons"><i class="fa fa-cogs"></i> Settings</a>
+                    <a class="button tour" title="Show help"><i class="fa fa-question"></i></a>
+                </div>
+            </div>
+            <div class="field small"
+                 title="Changes in time to type a key, in milliseconds">
+                <span class="name">Key times gain:</span>
+                <span id="g-key-times-gain" class="key-times-details"></span>
+            </div>
+            <div class="field small"
+                 title="The current key set, on order of letter frequency">
+                <span class="name">Lesson's key set:</span>
+                <span id="g-lesson-details" class="lesson-details"></span>
+            </div>
+        </div>
+        <div id="text-wrap" class="animated bounceIn">
+            <div id="text"></div>
+        </div>
+        <div id="keyboard-wrap">
+            <svg id="keyboard" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                 width="1000" height="250" overflow="visible" class="unselectable">
+                <rect x="0" y="0" width="1000" height="250" rx="10" ry="10"
+                      fill="#d9d9df"/>
+
+                <svg id="layout" class="layout" x="21" y="21" overflow="visible"/>
+
+                <svg id="overlay" class="overlay" x="21" y="21" overflow="visible"/>
+
+                <svg id="marks" x="41" y="41" overflow="visible">
+                    <circle cx="72" cy="84" r="20" class="m"/>
+                    <circle cx="114" cy="84" r="20" class="m"/>
+                    <circle cx="156" cy="84" r="20" class="m"/>
+                    <circle cx="198" cy="84" r="20" class="m x"/>
+                    <circle cx="324" cy="84" r="20" class="m x"/>
+                    <circle cx="366" cy="84" r="20" class="m"/>
+                    <circle cx="408" cy="84" r="20" class="m"/>
+                    <circle cx="450" cy="84" r="20" class="m"/>
+                </svg>
+
+                <svg id="hands" x="10" y="10" opacity="0.9">
+                    <use xlink:href="#hands-figure"/>
+                </svg>
+            </svg>
+        </div>
+        <div class="screen">
+            <div class="loader">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <ul class="hidden">
+        <li class="hint" data-query="#text" data-position="n">
+            This is text board. It displays the text to type out.
+        </li>
+        <li class="hint" data-query="#keyboard" data-position="n">
+            This is virtual keyboard. It helps you memorize key positions.
+        </li>
+        <li class="hint" data-query="#g-speed" data-position="s">
+            Typing speed indicator, in characters per minute. Higher is better.
+        </li>
+        <li class="hint" data-query="#g-errors" data-position="s">
+            Error counter, it is increased every you make a typo. Lower is better.
+        </li>
+        <li class="hint" data-query="#g-score" data-position="s">
+            Typing score in abstract points. Higher is better.
+        </li>
+    </ul>
+</section>
+
+<section class="page settings animated fadeInUp" data-url="settings">
+    <div class="tabs window">
+        <ul class="menu">
+            <li data-for="_form-1">Learning Mode</li>
+            <li data-for="_form-2">Keyboard Layout</li>
+            <li data-for="_form-3">Miscellaneous</li>
+        </ul>
+
+        <form id="_form-1" class="settings">
+            <div class="horizontal flex mode-switch">
+                <div class="radio-group">
+                    <div class="caption">Beginner Mode</div>
+                    <div class="radio">
+                        <input id="_radio-mode-1" type="radio" name="mode" value="_fieldset-mode-1">
+                        <label for="_radio-mode-1">Guided Lessons
+                            <small>A best mode for beginners. Computer will give you lessons
+                                matching your skills.</small></label>
+                    </div>
+                </div>
+                <div class="radio-group">
+                    <div class="caption">Advanced Mode</div>
+                    <div class="radio">
+                        <input id="_radio-mode-2" type="radio" name="mode" value="_fieldset-mode-2">
+                        <label for="_radio-mode-2">Import text from web site
+                            <small>Import content of a web site of web blog.</small></label>
+                    </div>
+                    <div class="radio">
+                        <input id="_radio-mode-3" type="radio" name="mode" value="_fieldset-mode-3">
+                        <label for="_radio-mode-3">Provide your own custom text
+                            <small>Paste your own text to type out.</small></label>
+                    </div>
+                </div>
+            </div>
+
+            <fieldset id="_fieldset-mode-1">
+                <p>This mode will automatically generate typing lessons with random words in pseudo-English
+                    language. The key set is expanded dynamically based on user performance.</p>
+
+                <p>Lesson's key set: <span id="_lesson-details" class="lesson-details"></span></p>
+
+                <p class="legend">Legend:
+                    <span class="lesson-legend least-confident">?</span> Least confident
+                    <span class="lesson-legend most-confident">?</span> Most confident
+                    <span class="lesson-legend most-confident boosted">?</span> Boosted frequency
+                    <span class="lesson-legend most-confident forced">?</span> Manually included by user
+                    <span class="lesson-legend excluded">?</span> Not included</p>
+
+                <p class="field-list">
+                    <span class="field"><label for="_range-lesson-complexity">Override lesson complexity:</label></span>
+                    <span class="field"><input id="_range-lesson-complexity" type="range" min="1" max="100"
+                                               title="Increase lesson's key set size"></span>
+
+                    <span class="field"><label for="_range-lesson-length">Override lesson length:</label></span>
+                    <span class="field"><input id="_range-lesson-length" type="range" min="1" max="100"
+                                               title="Increase lesson's length"></span>
+                </p>
+
+                <p class="field-list">
+                    <span class="field"><input id="_cb-enable-capitals" type="checkbox">
+                        <label for="_cb-enable-capitals" title="Generate text with capital letters">
+                            Enable capital letters</label></span>
+                    <span class="field"><input id="_cb-enable-punctuators" type="checkbox">
+                        <label for="_cb-enable-punctuators" title="Add punctuation characters to the generated text">
+                            Enable punctuation characters</label></span>
+                </p>
+
+                <p>Generated lesson example: <span id="_lesson-example"></span></p>
+            </fieldset>
+
+            <fieldset id="_fieldset-mode-2">
+                <p>Paste web site url here, its content will be imported for exercises:</p>
+
+                <p>
+                    <small>Examples:
+                        <a href="#" class="example-url"
+                           data-url="en.wikipedia.org/wiki/Special:Random">Wikipedia random
+                            article</a>,
+                        <a href="#" class="example-url"
+                           data-url="www.nytimes.com">www.nytimes.com</a>,
+                        <a href="#" class="example-url"
+                           data-url="www.theonion.com">www.theonion.com</a>.
+                    </small>
+                </p>
+
+                <p>
+                    <input id="_url" class="fluid" type="text" placeholder="Web site url..."/>
+                </p>
+
+                <div id="_t1"></div>
+            </fieldset>
+
+            <fieldset id="_fieldset-mode-3">
+                <p>Paste your custom text here, it will be used in exercises:</p>
+
+                <p>
+                    <small>Examples:
+                        <a href="#" class="example-text" data-name="jabberwocky">Jabberwocky</a>,
+                        <a href="#" class="example-text" data-name="loremipsum">Lorem Ipsum</a>,
+                        <a href="#" class="example-text" data-name="story">A Short Story</a>.
+                    </small>
+                </p>
+
+                <p>
+                    <textarea id="_text" class="fluid" placeholder="Custom text..."></textarea>
+                </p>
+
+                <div id="_t2"></div>
+            </fieldset>
+        </form>
+
+        <form id="_form-2" class="settings">
+            <fieldset>
+                <div class="horizontal flex">
+                    <ul id="_layout-list" class="grid-cell"></ul>
+                    <div class="fill grid-cell">
+                        <svg id="keyboard-demo" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                             width="671" height="250" class="unselectable">
+                            <rect x="0" y="0" width="671" height="250" rx="10" ry="10"
+                                  fill="#d9d9df"/>
+                            <svg id="_layout-demo" class="layout" x="21" y="21"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <p>
+                    <input id="_cb-emulate-layout" type="checkbox" disabled>
+                    <label for="_cb-emulate-layout">Emulate layout
+                        <small>Use this option to emulate the selected layout when the standard
+                            layout is set in the system.</small></label>
+                </p>
+            </fieldset>
+        </form>
+
+        <form id="_form-3" class="settings">
+            <fieldset>
+                <legend>Interface Options</legend>
+
+                <p class="field-list"><span class="field">Measure speed:</span>
+                    <span class="field"><input id="_rb-speed-unit-wpm" name="speed-unit" value="wpm"
+                                               type="radio">
+                        <label for="_rb-speed-unit-wpm">Words per minute (WPM)</label></span>
+                    <span class="field"><input id="_rb-speed-unit-cpm" name="speed-unit" value="cpm"
+                                               type="radio">
+                        <label for="_rb-speed-unit-cpm">Characters per minute (CPM)</label></span>
+                </p>
+
+                <p><small>For the purpose of typing measurement, each word is standardized to be five
+                    characters or keystrokes long, including spaces and punctuation.</small></p>
+
+                <p class="field-list">
+                    <input id="_cb-enable-sound" type="checkbox" disabled>
+                    <label for="_cb-enable-sound">Enable sounds
+                        <small>Make extra noise when typing and on errors.</small></label>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Teaching Options</legend>
+
+                <p class="field-list">
+                    <input id="_cb-stop-at-error" type="checkbox" disabled checked>
+                    <label for="_cb-stop-at-error">Stop cursor on error
+                        <small>When enabled the cursor will not advance until you type the right character at the
+                            current position.</small></label>
+                </p>
+            </fieldset>
+        </form>
+
+        <div class="horizontal flex justify-end">
+            <a id="submit" class="button" href="#game"><i class="fa fa-check"></i> Done</a>
+        </div>
+    </div>
+
+    <div id="_t0" class="hidden">
+        <p class="field-list">
+            <span class="field">Clean-up text:</span>
+            <span class="field"><input id="_cb-simplify" type="checkbox">
+                <label for="_cb-simplify"
+                       title="Remove punctuation from the text to make it simpler to type">
+                    Remove punctuation</label></span>
+            <span class="field"><input id="_cb-lowercase" type="checkbox">
+                <label for="_cb-lowercase" title="Transform all text to lower case">
+                    Transform to lowercase</label></span>
+            <span class="field"><input id="_cb-censor" type="checkbox">
+                <label for="_cb-censor" title="Remove profanity from the text">
+                    Censor text</label></span>
+        </p>
+    </div>
+</section>
+
+<section class="page help animated fadeInRight" data-url="help">
+    <article class="window">
+        <h1>How does Keybr.com work?</h1>
+
+        <p>Unlike much of the teaching typing software available out there, Keybr.com does not force you to type random
+            characters over and over again; that is simply boring and contributes very little to your learning. Instead,
+            Keybr.com generates readable random words using the phonetic rules of your native language. These words look
+            almost natural, and often they really are. Typing sensible text is much easier than random letters, and it
+            helps you to remember frequent key combinations. For example, it’s almost impossible for the letter ‘W’ to
+            follow the ‘Z’ in English, and you will never type this combination in Keybr.com. Instead, you will type
+            more common words, such as “the,” “that,” “with,” and so on. Keybr.com lets you introduce as few keys as
+            possible to the lesson, adding more keys later when you feel that you are competent and fast enough on the
+            current level. So, if you start with the keys from the Caps Lock row, th en add keys form the Tab row, and
+            then from the Shift row, you will eventually end up typing real text with capital letters and
+            punctuation.</p>
+
+        <h1>Typing Tips</h1>
+
+        <p>Please follow these simple rules:</p>
+
+        <ul>
+            <li>Place your hands on the keyboard appropriately, so that your left forefinger is
+                on the &lsquo;F&rsquo; key, and the right one is on the &lsquo;J&rsquo; key. You
+                should feel the bump at the bottom of each of these keys.
+            </li>
+            <li>Try not to look at the keyboard, but look at the screen only. If you are stuck,
+                use the virtual keyboard to find the proper key.
+            </li>
+            <li>If your typing speed is very slow, start from the simplest level, using random
+                words composed of the letters from the Caps Lock row only.
+            </li>
+            <li>Please do not hurry. First learn to type accurately, and then improve your
+                typing speed.
+            </li>
+            <li>Please note that if you practice 30–60 minutes every day, it may take a week or
+                two to get to the speed of about 50 words per minute.
+            </li>
+        </ul>
+
+        <h1>Using keybr.com</h1>
+
+        <p>By virtue of practical reason, it must not be supposed that our understanding is the key to understanding
+            necessity. It is not at all certain that, for example, our knowledge, in natural theology, is the mere
+            result of the power of the manifold, a blind but indispensable function of the soul, and the Antinomies
+            constitute the whole content of, in accordance with the principles of the Categories, metaphysics. It must
+            not be supposed that our a posteriori concepts are a representation of the transcendental aesthetic. Time
+            teaches us nothing whatsoever regarding the content of the transcendental objects in space and time. As we
+            have already seen, our concepts prove the validity of, that is to say, the architectonic of natural reason;
+            by means of metaphysics, metaphysics can never furnish a true and demonstrated science, because, like
+            philosophy, it has lying before it speculative principles. There can be no doubt that, in accordance with
+            the principles of natural causes, our judgements are the clue to the discovery of, on the other hand, the
+            noumena, yet the thing in itself teaches us nothing whatsoever regarding the content of the employment of
+            metaphysics.</p>
+
+        <p>As is shown in the writings of Hume, we can deduce that, that is to say, necessity abstracts from all content
+            of knowledge, and the transcendental aesthetic teaches us nothing whatsoever regarding the content of the
+            things in themselves. The reader should be careful to observe that the things in themselves are the clue to
+            the discovery of the thing in itself; in the case of formal logic, our faculties stand in need to pure
+            logic. The Categories stand in need to, in the case of our knowledge, the things in themselves. (As any
+            dedicated reader can clearly see, it remains a mystery why, in particular, the Categories have lying before
+            them philosophy, but our sense perceptions are by their very nature contradictory.) The Antinomies, insomuch
+            as the thing in itself relies on our a priori concepts, exist in our ideas; consequently, the manifold would
+            thereby be made to contradict, in accordance with the principles of the things in themselves, the
+            intelligible objects in space and time. I assert, consequently, that, so far as I know, our a posteriori
+            knowledge proves the validity of, certainly, natural causes, and the Transcendental Deduction, in reference
+            to ends, may not contradict itself, but it is still possible that it may be in contradictions with the
+            noumena.</p>
+
+        <p>Certainly, the Categories exclude the possibility of, still, the pure employment of the thing in itself,
+            since none of our problematic judgements are problematic. The phenomena are by their very nature
+            contradictory, since some of our sense perceptions are synthetic. There can be no doubt that our a priori
+            judgements (and there can be no doubt that this is the case) constitute the whole content of our ideas;
+            still, our a posteriori concepts stand in need to the transcendental unity of apperception. Since knowledge
+            of natural causes is a priori, the discipline of practical reason, so far as I know, would thereby be made
+            to contradict the noumena, and the never-ending regress in the series of empirical conditions, certainly, is
+            by its very nature contradictory. As is shown in the writings of Galileo, it is obvious that the Antinomies
+            should only be used as a canon for the thing in itself. This may be clear with an example.</p>
+
+        <p>It is not at all certain that the manifold, with the sole exception of our a posteriori knowledge, can never
+            furnish a true and demonstrated science, because, like space, it can thereby determine in its totality a
+            priori principles; in view of these considerations, metaphysics is just as necessary as our ideas. The
+            objects in space and time can not take account of, on the contrary, the paralogisms of human reason, and the
+            things in themselves are the mere results of the power of the Ideal of natural reason, a blind but
+            indispensable function of the soul. As is proven in the ontological manuals, metaphysics would thereby be
+            made to contradict the Antinomies; consequently, the practical employment of the architectonic of pure
+            reason has lying before it the discipline of human reason. General logic is what first gives rise to the
+            things in themselves. However, let us suppose that our concepts (and it is not at all certain that this is
+            the case) would thereby be made to contradict the Ideal.</p>
+
+        <p>The paralogisms can be treated like the Antinomies. As any dedicated reader can clearly see, it must not be
+            supposed that natural causes, so regarded, constitute a body of demonstrated doctrine, and some of this body
+            must be known a priori; therefore, the noumena have lying before them the pure employment of our ideas. In
+            the case of our experience, our ideas have nothing to do with the employment of our faculties, since
+            knowledge of the paralogisms of natural reason is a priori. By means of analysis, the reader should be
+            careful to observe that, even as this relates to our understanding, our faculties would thereby be made to
+            contradict, in particular, our knowledge, yet the transcendental unity of apperception would be falsified.
+            In which of our cognitive faculties are necessity and the phenomena connected together? To avoid all
+            misapprehension, it is necessary to explain that our ideas, therefore, would be falsified, since all of the
+            paralogisms are disjunctive.</p>
+
+        <p>The pure employment of the objects in space and time, by means of our knowledge, is the mere result of the
+            power of our experience, a blind but indispensable function of the soul; however, space, in natural
+            theology, is by its very nature contradictory. Space can be treated like the objects in space and time, but
+            the Categories are the mere results of the power of human reason, a blind but indispensable function of the
+            soul. To avoid all misapprehension, it is necessary to explain that philosophy teaches us nothing whatsoever
+            regarding the content of the transcendental unity of apperception. As I have elsewhere shown, the Categories
+            would thereby be made to contradict, on the other hand, the architectonic of practical reason. The noumena,
+            however, constitute a body of demonstrated doctrine, and some of this body must be known a posteriori. Since
+            some of the Antinomies are disjunctive, our concepts, even as this relates to space, constitute a body of
+            demonstrated doctrine, and some of this body must be known a priori. I feel I have sufficiently shown this
+            to be true.</p>
+    </article>
+</section>
+
+<section class="page scores animated fadeInRight" data-url="scores">
+    <article class="window">
+        <h1>High Scores</h1>
+
+        <div class="scores-wrap">
+            <table class="scores">
+                <thead>
+                <tr>
+                    <th class="number">Pos.</th>
+                    <th>Typist</th>
+                    <th class="number">Speed</th>
+                    <th class="number">Score</th>
+                    <th>Language/Layout</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="number">1</td>
+                    <td><a href="/user/show/157469">Kyle Me</a></td>
+                    <td class="number">129</td>
+                    <td class="number">5032</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">2</td>
+                    <td><a href="/user/show/226262">mar96cia</a></td>
+                    <td class="number">140</td>
+                    <td class="number">4536</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">3</td>
+                    <td><a href="/user/show/226982">poopia</a></td>
+                    <td class="number">99</td>
+                    <td class="number">4226</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">4</td>
+                    <td><a href="/user/show/226264">MarcoMalik</a></td>
+                    <td class="number">140</td>
+                    <td class="number">4074</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">5</td>
+                    <td><a href="/user/show/157839">kayalishous</a></td>
+                    <td class="number">122</td>
+                    <td class="number">4063</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">6</td>
+                    <td><a href="/user/show/226866">Chantal.Sabado</a></td>
+                    <td class="number">140</td>
+                    <td class="number">4034</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">7</td>
+                    <td><a href="/user/show/226266">Gabriela Valdez</a></td>
+                    <td class="number">105</td>
+                    <td class="number">3859</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">8</td>
+                    <td><a href="/user/show/159451">deannakaltenbach</a></td>
+                    <td class="number">138</td>
+                    <td class="number">3828</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">9</td>
+                    <td><a href="/user/show/225962">salma.yazji</a></td>
+                    <td class="number">105</td>
+                    <td class="number">3767</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">10</td>
+                    <td><a href="/user/show/226123">JoshZalar97</a></td>
+                    <td class="number">138</td>
+                    <td class="number">3677</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">11</td>
+                    <td><a href="/user/show/225961">AndreiC</a></td>
+                    <td class="number">94</td>
+                    <td class="number">3664</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">12</td>
+                    <td><a href="/user/show/185941">nawtu</a></td>
+                    <td class="number">156</td>
+                    <td class="number">3629</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">13</td>
+                    <td><a href="/user/show/171951">The_Master</a></td>
+                    <td class="number">115</td>
+                    <td class="number">3557</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">14</td>
+                    <td><a href="/user/show/225960">mh.shalini.sharma</a></td>
+                    <td class="number">105</td>
+                    <td class="number">3550</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">15</td>
+                    <td><a href="/user/show/184972">drjouett</a></td>
+                    <td class="number">100</td>
+                    <td class="number">3465</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">16</td>
+                    <td><a href="/user/show/1349">tjpad</a></td>
+                    <td class="number">96</td>
+                    <td class="number">3422</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">17</td>
+                    <td><a href="/user/show/226299">mh.marycatherine.esguerra</a></td>
+                    <td class="number">105</td>
+                    <td class="number">3414</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">18</td>
+                    <td><a href="/user/show/256476">meltoncub</a></td>
+                    <td class="number">75</td>
+                    <td class="number">3380</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">19</td>
+                    <td><a href="/user/show/168413">15108701</a></td>
+                    <td class="number">96</td>
+                    <td class="number">3370</td>
+                    <td>English/United States</td>
+                </tr>
+                <tr>
+                    <td class="number">20</td>
+                    <td><a href="/user/show/230716">mwdiers</a></td>
+                    <td class="number">101</td>
+                    <td class="number">3358</td>
+                    <td>English/Colemak</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Here you can see who the fastest typist is for the last seven days. Typing speed is measured in words per
+            minute. Score is calculated as speed multiplied by text complexity. Text complexity is number of different
+            characters in the text. So the faster you type, the more letters are used in the text, the higher score you
+            get.</p>
+    </article>
+</section>
+
+<section class="page extras animated fadeInRight" data-url="extras">
+    <article class="window">
+        <h1>Extras</h1>
+
+        <p>With a single click of the mouse, you will be able to import any web page into keybr to
+            type its contents. But first, you need to install the keybr button in your browser. To
+            do so, drag the link provided below into your browser's bookmarks toolbar:</p>
+
+        <p style="text-align: center; margin: 2em;">
+            <a class="button" onclick="info(); return false;"
+               title="Type this page in keybr.com"
+               href="javascript:location.href='http://keybr.com/?url='+encodeURIComponent(location.href)">KEYBR.COM</a>
+            &larr; Drag this button to your bookmarks bar!
+        </p>
+
+        <p>to get the effect like in the picture below:</p>
+
+        <p style="text-align: center; margin: 2em;">
+            <img src="/res/image/bookmarklet_screeshot.png" alt="" width="725" height="366"/>
+        </p>
+
+        <p>That's all.</p>
+
+        <p>Later, when you visit a web page, if you decide to practice typing, you can click the
+            bookmark link to import the current page into keybr.com and type it out.</p>
+        <script type="text/javascript">
+            function info() {
+                alert("To start using this bookmarklet, drag it to your browser's bookmarks toolbar.");
+            }
+        </script>
+    </article>
+</section>
+
+<section class="page profile animated fadeInRight" data-url="profile">
+    <article class="window">
+        <h1>My Profile</h1>
+
+        <p class="field-list"><span class="field">Show statistics for:</span>
+            <span class="field"><span id="dd-group" class="ui dropdown" tabindex="1"></span></span></p>
+
+        <div class="horizontal flex grid-row indicator-list">
+            <div class="indicator grid-cell">Total Time:
+                <span id="g-s-total-time" class="value"></span></div>
+            <div class="indicator grid-cell">Total Samples:
+                <span id="g-s-total-samples" class="value"></span></div>
+        </div>
+
+        <div class="horizontal flex grid-row indicator-list">
+            <div class="indicator grid-cell">Top Speed
+                (<span class="speed-unit-text"></span>):
+                <span id="g-s-top-speed" class="value speed-unit-title"></span></div>
+            <div class="indicator grid-cell">Average Speed
+                (<span class="speed-unit-text"></span>):
+                <span id="g-s-avg-speed" class="value speed-unit-title"></span></div>
+            <div class="indicator grid-cell">Average Speed Today
+                (<span class="speed-unit-text"></span>):
+                <span id="g-s-avg-speed-today" class="value speed-unit-title"></span></div>
+        </div>
+
+        <div class="fx-list grid-row">
+            <figure class="fx grid-row">
+                <figcaption>Player's Typing Achievements</figcaption>
+
+                <div id="achievements-wrap"><p id="achievements"></p></div>
+            </figure>
+
+            <figure class="fx grid-row">
+                <figcaption>Player's Learning Progress Chart</figcaption>
+
+                <p class="description">This chart shows the player's learning progress for each individual key.</p>
+
+                <svg id="svg-chart-progress" width="100%" height="500px"></svg>
+            </figure>
+
+            <figure class="fx grid-row">
+                <figcaption>Player's Typing Speed Chart</figcaption>
+
+                <p class="description">This chart shows how the player's typing speed changes over time.</p>
+
+                <svg id="svg-chart-speed" width="100%" height="350px"></svg>
+            </figure>
+
+            <figure class="fx grid-row">
+                <figcaption>Keyboard Keys Frequency Visualisation</figcaption>
+
+                <p class="description">This chart shows relative key frequencies.</p>
+
+                <svg id="svg-histogram-frequency" width="100%" height="350px"></svg>
+            </figure>
+
+            <figure class="fx grid-row">
+                <figcaption>Player's Proficiency Visualization</figcaption>
+                <p class="description">This chart shows how much time does it take for the player to find each key, in
+                    milliseconds.</p>
+
+                <svg id="svg-histogram-proficiency" width="100%" height="250px"></svg>
+            </figure>
+
+            <figure class="fx grid-row">
+                <figcaption>Player's Practicing Calendar</figcaption>
+
+                <p class="description">This calendar shows dates of active learning.</p>
+
+                <div id="calendar"></div>
+            </figure>
+        </div>
+
+        <p style="margin-top: 2em; text-align: right;">
+            <small><a id="download-data" href="#">Download typing data...</a></small>
+        </p>
+    </article>
+</section>
+
+<section class="page invaders animated fadeInRight" data-url="invaders">
+    <div id="invaders" class="vertical flex justify-center align-center">
+        <div>KEYBOARD INVADERS!</div>
+        <div>TODO</div>
+    </div>
+</section>
+
+
+<footer>
+    <div>
+        Send your comments and suggestions to
+        <a href="mailto:info@keybr.com">info@keybr.com</a><br/>
+        Copyright &copy; 2013 keybr.com
+        | <a href="/pages/termsofservice">Terms of Service</a>
+        | <a href="/pages/privacypolicy">Privacy Policy</a>
+    </div>
+</footer>
+
+<svg id="library" xmlns="http://www.w3.org/2000/svg" version="1.1" class="hidden">
+    <defs>
+        <svg id="key-hl" overflow="visible">
+            <circle cx="0" cy="0" r="30" class="key-hl">
+                <animate attributeName="r" from="60" to="30" dur="0.2s"/>
+                <animate attributeName="opacity" from="0" to="1" dur="0.2s"/>
+            </circle>
+        </svg>
+        <svg id="key" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="10" y="30" class="symbol-primary-shift"></text>
+            <text x="10" y="15" class="symbol-primary"></text>
+            <text x="28" y="30" class="symbol-secondary-shift"></text>
+            <text x="28" y="15" class="symbol-secondary"></text>
+            <text x="15" y="25" class="symbol"></text>
+        </svg>
+        <svg id="key-wide" class="simple key">
+            <rect x="0" y="0" width="60" height="40" class="plastic"/>
+            <text x="10" y="30" class="symbol-primary-shift"></text>
+            <text x="10" y="15" class="symbol-primary"></text>
+            <text x="28" y="30" class="symbol-secondary-shift"></text>
+            <text x="28" y="15" class="symbol-secondary"></text>
+            <text x="15" y="25" class="symbol"></text>
+        </svg>
+        <svg id="key-left-shift" class="special key">
+            <rect x="0" y="0" width="92" height="40" class="plastic"/>
+            <text x="15" y="25">Shift</text>
+        </svg>
+        <svg id="key-left-shift-small" class="special key">
+            <rect x="0" y="0" width="50" height="40" class="plastic"/>
+            <text x="15" y="25">Shift</text>
+        </svg>
+        <svg id="key-right-shift" class="special key">
+            <rect x="0" y="0" width="115" height="40" class="plastic"/>
+            <text x="15" y="25">Shift</text>
+        </svg>
+        <svg id="key-ctrl" class="special key">
+            <rect x="0" y="0" width="63" height="40" class="plastic"/>
+            <text x="15" y="25">Ctrl</text>
+        </svg>
+        <svg id="key-alt" class="special key">
+            <rect x="0" y="0" width="63" height="40" class="plastic"/>
+            <text x="15" y="25">Alt</text>
+        </svg>
+        <svg id="key-alt-gr" class="special key">
+            <rect x="0" y="0" width="63" height="40" class="plastic"/>
+            <text x="15" y="25">Alt Gr</text>
+        </svg>
+        <svg id="key-tab" class="special key">
+            <rect x="0" y="0" width="63" height="40" class="plastic"/>
+            <text x="15" y="25">Tab</text>
+        </svg>
+        <svg id="key-caps-lock" class="special key">
+            <rect x="0" y="0" width="70" height="40" class="plastic"/>
+            <text x="15" y="25">Caps Lock</text>
+        </svg>
+        <svg id="key-backspace" class="special key">
+            <rect x="0" y="0" width="83" height="40" class="plastic"/>
+            <text x="15" y="25">Backspace</text>
+        </svg>
+        <svg id="key-enter" class="special key">
+            <path d="m 0,0 0,40 7,0 0,42 53,0 0,-82 z" class="plastic"/>
+            <text x="15" y="25">Enter</text>
+        </svg>
+        <svg id="key-enter-small" class="special key">
+            <rect x="0" y="0" width="95" height="40" class="plastic"/>
+            <text x="15" y="25">Enter</text>
+        </svg>
+        <svg id="key-space" class="key">
+            <rect x="0" y="0" width="369" height="40" class="plastic"/>
+        </svg>
+        <!-- cursor keys -->
+        <svg id="key-home" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="5" y="16">Home</text>
+        </svg>
+        <svg id="key-end" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="5" y="16">End</text>
+        </svg>
+        <svg id="key-insert" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="5" y="16">Insert</text>
+        </svg>
+        <svg id="key-delete" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="5" y="16">Delete</text>
+        </svg>
+        <svg id="key-page-up" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="5" y="16">Page</text>
+            <text x="5" y="28">Up</text>
+        </svg>
+        <svg id="key-page-down" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="5" y="16">Page</text>
+            <text x="5" y="28">Down</text>
+        </svg>
+        <svg id="key-up" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="20" y="25" text-anchor="middle" class="symbol">&uarr;</text>
+        </svg>
+        <svg id="key-down" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="20" y="25" text-anchor="middle" class="symbol">&darr;</text>
+        </svg>
+        <svg id="key-left" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="20" y="25" text-anchor="middle" class="symbol">&larr;</text>
+        </svg>
+        <svg id="key-right" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="20" y="25" text-anchor="middle" class="symbol">&rarr;</text>
+        </svg>
+        <!-- numpad keys -->
+        <svg id="key-np-num-lock" class="key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="5" y="16">Num</text>
+            <text x="5" y="28">Lock</text>
+        </svg>
+        <svg id="key-np-divide" class="key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="15" y="25" class="symbol">&frasl;</text>
+        </svg>
+        <svg id="key-np-multiply" class="key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="15" y="25" class="symbol">&times;</text>
+        </svg>
+        <svg id="key-np-subtract" class="key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="15" y="25" class="symbol">&minus;</text>
+        </svg>
+        <svg id="key-np-add" class="key">
+            <rect x="0" y="0" width="40" height="82" class="plastic"/>
+            <text x="15" y="25" class="symbol">+</text>
+        </svg>
+        <svg id="key-np-enter" class="key">
+            <rect x="0" y="0" width="40" height="82" class="plastic"/>
+            <text x="5" y="16">Enter</text>
+        </svg>
+        <svg id="key-np-decimal" class="key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="8" y="18" class="symbol">.</text>
+            <text x="35" y="32" text-anchor="end">Del</text>
+        </svg>
+        <svg id="key-np-0" class="key">
+            <rect x="0" y="0" width="82" height="40" class="plastic"/>
+            <text x="8" y="18" class="symbol">0</text>
+            <text x="77" y="32" text-anchor="end">Ins</text>
+        </svg>
+        <svg id="key-np-1" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="8" y="18" class="symbol">1</text>
+            <text x="35" y="32" text-anchor="end">End</text>
+        </svg>
+        <svg id="key-np-2" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="8" y="18" class="symbol">2</text>
+            <text x="35" y="32" text-anchor="end">&darr;</text>
+        </svg>
+        <svg id="key-np-3" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="8" y="18" class="symbol">3</text>
+            <text x="35" y="32" text-anchor="end">Pg Up</text>
+        </svg>
+        <svg id="key-np-4" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="8" y="18" class="symbol">4</text>
+            <text x="35" y="32" text-anchor="end">&larr;</text>
+        </svg>
+        <svg id="key-np-5" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="8" y="18" class="symbol">5</text>
+        </svg>
+        <svg id="key-np-6" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="8" y="18" class="symbol">6</text>
+            <text x="35" y="32" text-anchor="end">&rarr;</text>
+        </svg>
+        <svg id="key-np-7" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="8" y="18" class="symbol">7</text>
+            <text x="35" y="32" text-anchor="end">Home</text>
+        </svg>
+        <svg id="key-np-8" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="8" y="18" class="symbol">8</text>
+            <text x="35" y="32" text-anchor="end">&uarr;</text>
+        </svg>
+        <svg id="key-np-9" class="simple key">
+            <rect x="0" y="0" width="40" height="40" class="plastic"/>
+            <text x="8" y="18" class="symbol">9</text>
+            <text x="35" y="32" text-anchor="end">Pg Up</text>
+        </svg>
+        <svg id="hands-figure">
+            <path fill="#8c8c8c"
+                  d="M 123.20 115.61 C 135.54 113.39 141.93 98.90 154.81 98.40 C 160.80 98.15 164.60 103.06 169.14 105.96 C 177.15 106.36 183.89 98.90 192.14 102.81 C 198.12 103.24 200.71 114.31 206.83 109.80 C 213.29 104.60 223.63 104.09 229.34 110.70 C 236.86 120.05 233.81 133.22 229.23 143.18 C 224.65 152.63 229.96 163.24 234.13 171.78 C 240.20 172.24 247.71 171.55 251.80 177.18 C 256.12 184.04 253.54 192.84 257.03 199.99 C 262.37 212.03 266.11 224.74 269.63 237.39 C 273.19 250.24 264.03 260.10 259.58 271.00 L 251.92 271.00 C 256.13 261.43 262.50 252.01 260.99 241.00 C 258.32 224.23 250.50 208.28 251.07 191.01 C 251.24 187.17 251.67 182.44 248.11 179.90 C 247.85 179.63 247.33 179.11 247.07 178.84 C 243.25 174.43 236.46 176.60 231.59 177.47 C 225.11 180.33 223.71 173.13 221.94 169.02 C 213.14 150.24 239.94 134.02 227.90 115.15 C 226.76 112.77 224.53 111.35 221.99 110.86 L 221.17 110.65 C 213.12 106.03 208.53 116.92 201.23 115.85 C 197.28 110.79 192.47 104.36 184.99 105.91 C 178.93 105.65 173.01 112.72 167.20 108.71 C 162.41 105.90 156.92 100.26 150.84 102.77 C 141.95 107.19 135.10 115.07 125.86 118.98 C 121.11 121.00 116.87 114.59 112.55 116.99 C 111.03 116.66 109.69 115.10 108.10 115.47 L 107.24 115.86 C 101.26 117.74 97.77 122.79 95.02 128.04 C 84.64 140.60 75.06 153.97 67.35 168.34 C 61.78 182.96 58.28 198.27 52.99 213.00 C 45.96 231.36 42.99 251.97 49.13 271.00 L 41.27 271.00 C 35.78 259.28 34.15 246.04 37.35 233.37 C 41.92 215.27 48.70 197.77 55.40 180.37 C 66.33 156.09 84.06 135.97 99.85 114.88 C 106.35 107.83 116.05 111.66 123.20 115.61 Z"
+                  opacity="0.15"/>
+            <path fill="#7a7775"
+                  d="M 150.84 102.77 C 156.92 100.26 162.41 105.90 167.20 108.71 C 173.01 112.72 178.93 105.65 184.99 105.91 C 192.47 104.36 197.28 110.79 201.23 115.85 C 208.53 116.92 213.12 106.03 221.17 110.65 C 216.78 110.53 211.80 112.05 209.30 115.90 C 207.83 118.20 205.15 119.26 203.15 121.03 C 202.68 121.32 201.72 121.91 201.25 122.20 C 199.29 120.09 198.00 117.55 197.07 114.85 C 196.67 113.75 195.81 112.90 194.90 112.21 C 191.11 106.31 183.05 107.15 177.80 110.84 C 176.24 111.73 174.67 112.60 173.05 113.38 C 167.94 115.48 164.07 112.48 161.19 108.56 C 158.87 101.77 150.63 103.64 146.70 107.99 C 140.23 113.73 132.72 118.03 125.74 123.07 C 124.53 123.46 123.33 123.88 122.13 124.29 C 121.05 123.77 120.00 123.23 118.96 122.65 C 116.94 120.63 114.83 118.71 112.55 116.99 C 116.87 114.59 121.11 121.00 125.86 118.98 C 135.10 115.07 141.95 107.19 150.84 102.77 Z"
+                  opacity="0.15"/>
+            <path fill="#f8d0b3"
+                  d="M 146.70 107.99 C 150.63 103.64 158.87 101.77 161.19 108.56 C 157.48 114.40 148.11 116.38 146.70 107.99 Z"/>
+            <path fill="#8c8b8b"
+                  d="M 416.20 110.14 C 421.32 104.51 429.65 103.41 436.31 106.71 C 443.66 110.85 450.73 116.00 459.01 118.04 C 465.49 116.91 469.33 108.28 476.87 111.04 C 488.48 115.71 492.26 129.71 503.01 135.97 C 511.17 144.99 524.46 143.92 533.46 151.51 C 541.79 159.07 542.05 170.98 543.69 181.38 C 546.33 198.38 554.69 214.78 552.41 232.34 C 553.17 245.52 555.72 258.61 560.35 271.00 L 555.22 271.00 C 547.67 247.59 551.40 222.33 542.66 199.23 C 538.19 188.85 537.28 177.42 532.95 167.01 C 529.07 156.97 517.88 153.23 510.19 146.84 C 500.89 139.14 491.68 131.21 484.57 121.36 C 482.10 118.66 478.35 113.11 474.07 115.81 C 473.22 116.22 472.36 116.63 471.51 117.02 C 467.49 115.35 464.73 121.65 460.39 121.41 C 449.76 120.94 441.60 112.70 432.02 109.00 C 426.12 106.86 421.20 112.08 416.29 114.24 C 408.50 117.84 401.80 110.08 394.04 111.04 C 388.85 111.31 384.16 114.07 379.11 114.76 C 374.35 113.88 367.98 111.86 364.11 116.07 C 363.76 116.42 363.06 117.11 362.71 117.45 L 362.07 118.00 C 353.36 128.01 361.74 142.77 368.85 151.21 C 382.01 164.45 390.74 181.70 394.07 199.96 C 394.44 205.08 386.46 203.75 384.71 200.27 C 374.18 190.38 362.67 172.64 345.87 179.76 C 344.83 180.32 343.84 180.95 342.89 181.65 C 342.57 181.93 341.93 182.50 341.62 182.79 C 341.10 184.06 340.82 185.41 340.64 186.77 C 339.52 197.65 345.19 208.02 344.81 219.02 C 342.94 238.03 354.49 254.18 361.24 271.00 L 358.22 271.00 C 352.27 261.46 347.26 251.37 343.13 240.91 C 337.81 228.89 342.59 215.99 339.37 203.61 C 338.01 194.82 332.47 183.74 340.75 176.68 C 353.59 169.90 367.55 177.63 378.35 184.69 C 384.58 185.96 383.67 176.71 381.93 173.07 C 374.65 157.98 358.42 147.82 355.46 130.55 C 352.21 121.14 359.91 107.25 370.96 110.14 C 381.27 113.79 389.77 103.38 400.02 108.01 C 405.29 108.49 411.09 113.76 416.20 110.14 Z"
+                  opacity="0.15"/>
+            <path fill="#edbc87"
+                  d="M 125.74 123.07 C 132.72 118.03 140.23 113.73 146.70 107.99 C 148.11 116.38 157.48 114.40 161.19 108.56 C 164.07 112.48 167.94 115.48 173.05 113.38 C 183.36 119.66 173.63 127.81 169.21 134.25 C 165.14 137.60 160.32 139.94 156.30 143.36 C 155.76 149.97 156.45 160.89 147.84 162.77 C 144.34 163.89 138.16 169.16 136.69 163.19 C 131.56 156.89 136.06 148.52 142.74 145.81 C 147.36 144.65 141.78 139.11 145.34 137.30 C 152.30 134.98 150.70 127.47 152.99 121.85 C 147.68 123.61 143.74 127.94 139.10 130.91 C 139.34 127.83 137.95 123.62 134.11 124.27 C 131.42 123.80 126.37 126.92 125.74 123.07 Z"/>
+            <path fill="#efb693"
+                  d="M 177.80 110.84 C 183.05 107.15 191.11 106.31 194.90 112.21 C 194.74 112.42 194.41 112.83 194.24 113.04 C 190.39 118.40 182.36 113.64 177.80 110.84 Z"/>
+            <path fill="#7b7775"
+                  d="M 416.29 114.24 C 421.20 112.08 426.12 106.86 432.02 109.00 C 441.60 112.70 449.76 120.94 460.39 121.41 C 464.73 121.65 467.49 115.35 471.51 117.02 C 471.15 117.55 470.45 118.60 470.09 119.13 C 466.84 116.35 466.65 126.06 464.14 126.52 C 458.35 124.94 452.83 122.61 447.15 120.70 C 445.77 119.45 444.04 118.79 442.29 118.26 L 441.57 118.01 C 436.34 114.40 425.48 104.89 421.84 114.86 C 418.34 120.40 411.76 118.83 406.54 116.91 C 399.48 114.21 388.87 109.58 383.84 117.96 C 382.76 119.28 381.81 120.69 380.84 122.08 C 378.48 115.55 370.09 114.02 364.11 116.07 C 367.98 111.86 374.35 113.88 379.11 114.76 C 384.16 114.07 388.85 111.31 394.04 111.04 C 401.80 110.08 408.50 117.84 416.29 114.24 Z"
+                  opacity="0.15"/>
+            <path fill="#f9ceaa"
+                  d="M 421.84 114.86 C 425.48 104.89 436.34 114.40 441.57 118.01 C 434.91 120.45 426.81 120.79 421.84 114.86 Z"/>
+            <path fill="#e7af77"
+                  d="M 173.05 113.38 C 174.67 112.60 176.24 111.73 177.80 110.84 C 182.36 113.64 190.39 118.40 194.24 113.04 C 197.20 120.03 188.12 124.90 182.34 124.33 C 177.24 129.59 173.19 135.94 167.28 140.38 C 157.85 149.91 161.24 164.29 153.51 174.51 C 150.37 180.25 150.34 187.46 152.05 193.63 C 152.54 193.56 153.53 193.44 154.03 193.37 C 158.70 192.87 162.97 195.93 165.10 199.92 C 151.23 198.96 155.72 218.02 166.85 217.08 C 170.09 213.11 172.94 208.28 171.21 202.94 C 176.03 206.75 182.55 203.90 182.46 197.54 C 182.61 188.58 190.35 182.12 190.28 173.19 C 192.42 169.66 197.90 165.26 195.31 160.72 C 188.91 157.20 183.37 150.58 175.76 154.90 C 177.42 145.92 184.99 140.78 190.05 133.89 L 190.81 133.62 C 197.14 132.48 197.02 142.89 204.00 140.07 C 208.93 141.95 215.66 139.02 214.90 133.24 C 211.59 128.16 205.52 128.01 200.13 127.90 C 201.12 125.60 202.23 123.35 203.15 121.03 C 205.15 119.26 207.83 118.20 209.30 115.90 C 209.07 122.42 215.88 120.65 220.39 121.60 C 223.38 122.56 224.99 119.19 227.09 117.73 C 227.83 119.68 228.22 121.75 228.41 123.83 C 227.90 125.96 227.16 128.03 226.25 130.02 C 216.92 134.15 216.56 146.87 207.81 151.83 C 195.92 158.71 202.41 176.00 191.45 183.45 C 184.29 189.17 191.95 199.48 186.66 205.65 C 182.44 207.91 183.61 213.01 181.75 216.74 C 173.44 216.53 163.31 221.33 156.69 214.30 C 152.82 211.59 151.09 207.36 149.70 203.05 C 142.24 205.07 139.65 214.29 133.08 217.93 C 130.82 217.00 128.81 214.35 126.17 215.17 C 118.66 220.13 109.50 206.31 115.00 199.99 C 117.43 197.09 114.56 195.04 112.16 193.68 C 113.98 186.77 117.32 180.28 119.14 173.32 C 119.44 167.75 128.22 164.70 123.68 158.64 C 124.93 152.62 128.99 146.72 133.93 142.84 C 135.98 141.47 133.27 139.17 132.87 137.49 C 133.84 134.40 136.65 132.73 139.10 130.91 C 143.74 127.94 147.68 123.61 152.99 121.85 C 150.70 127.47 152.30 134.98 145.34 137.30 C 141.78 139.11 147.36 144.65 142.74 145.81 C 136.06 148.52 131.56 156.89 136.69 163.19 C 138.16 169.16 144.34 163.89 147.84 162.77 C 156.45 160.89 155.76 149.97 156.30 143.36 C 160.32 139.94 165.14 137.60 169.21 134.25 C 173.63 127.81 183.36 119.66 173.05 113.38 Z"/>
+            <path fill="#f5c7ae"
+                  d="M 209.30 115.90 C 211.80 112.05 216.78 110.53 221.17 110.65 L 221.99 110.86 C 223.64 113.16 226.14 114.99 227.09 117.73 C 224.99 119.19 223.38 122.56 220.39 121.60 C 215.88 120.65 209.07 122.42 209.30 115.90 Z"/>
+            <path fill="#777776"
+                  d="M 221.99 110.86 C 224.53 111.35 226.76 112.77 227.90 115.15 C 239.94 134.02 213.14 150.24 221.94 169.02 C 223.71 173.13 225.11 180.33 231.59 177.47 C 236.46 176.60 243.25 174.43 247.07 178.84 C 241.35 176.24 236.85 182.78 232.02 181.84 C 226.05 183.47 216.28 187.17 217.01 177.01 C 212.40 166.82 218.47 157.58 220.98 147.87 C 224.84 140.44 229.78 132.64 228.41 123.83 C 228.22 121.75 227.83 119.68 227.09 117.73 C 226.14 114.99 223.64 113.16 221.99 110.86 Z"
+                  opacity="0.15"/>
+            <path fill="#d4925d"
+                  d="M 194.90 112.21 C 195.81 112.90 196.67 113.75 197.07 114.85 C 197.13 116.86 197.15 118.87 197.18 120.89 C 192.36 122.66 189.51 127.87 184.22 128.49 C 179.60 129.18 178.93 135.04 174.97 136.87 C 171.72 138.67 168.02 142.01 168.73 146.08 C 159.50 154.33 162.81 168.24 155.86 177.92 C 152.47 182.08 151.16 187.66 153.74 192.54 L 154.03 193.37 C 153.53 193.44 152.54 193.56 152.05 193.63 C 150.34 187.46 150.37 180.25 153.51 174.51 C 161.24 164.29 157.85 149.91 167.28 140.38 C 173.19 135.94 177.24 129.59 182.34 124.33 C 188.12 124.90 197.20 120.03 194.24 113.04 C 194.41 112.83 194.74 112.42 194.90 112.21 Z"/>
+            <path fill="#efb792"
+                  d="M 383.84 117.96 C 388.87 109.58 399.48 114.21 406.54 116.91 C 401.52 124.96 390.87 120.73 383.84 117.96 Z"/>
+            <path fill="#fdd9b4"
+                  d="M 108.10 115.47 C 109.69 115.10 111.03 116.66 112.55 116.99 C 114.83 118.71 116.94 120.63 118.96 122.65 C 115.51 127.06 113.01 132.09 110.00 136.79 C 106.73 134.45 103.08 140.50 100.68 136.27 C 98.28 133.52 103.48 133.05 105.00 131.74 C 105.22 128.72 101.49 125.72 104.11 123.07 C 104.74 120.40 109.17 118.50 108.10 115.47 Z"/>
+            <path fill="#564b47"
+                  d="M 197.07 114.85 C 198.00 117.55 199.29 120.09 201.25 122.20 C 200.22 123.82 199.02 125.36 197.31 126.31 C 197.28 125.73 197.23 124.56 197.21 123.97 C 197.23 122.94 197.23 121.91 197.18 120.89 C 197.15 118.87 197.13 116.86 197.07 114.85 Z"
+                  opacity="0.15"/>
+            <path fill="#e6b08c"
+                  d="M 364.11 116.07 C 370.09 114.02 378.48 115.55 380.84 122.08 C 379.16 124.49 376.49 122.94 374.56 121.81 C 373.79 126.36 368.01 127.50 363.96 128.06 C 363.35 124.38 369.32 117.39 362.71 117.45 C 363.06 117.11 363.76 116.42 364.11 116.07 Z"/>
+            <path fill="#e1a770"
+                  d="M 406.54 116.91 C 411.76 118.83 418.34 120.40 421.84 114.86 C 426.81 120.79 434.91 120.45 441.57 118.01 L 442.29 118.26 C 441.12 120.53 437.16 123.40 440.17 125.81 C 442.27 128.70 448.52 128.33 447.92 132.70 C 443.70 134.11 439.31 134.97 435.07 136.24 C 435.61 147.09 440.67 157.63 449.44 164.54 C 452.50 171.41 455.69 178.62 459.10 185.01 C 459.00 187.30 456.54 188.51 455.42 190.33 C 455.50 192.36 456.82 196.58 453.31 195.80 C 447.47 191.39 450.17 184.11 447.90 177.98 C 444.25 166.58 435.35 158.05 430.93 147.04 C 428.52 143.37 425.19 139.49 420.33 139.46 C 414.58 132.40 404.51 126.91 395.51 128.81 C 390.99 128.91 385.15 128.06 382.10 132.33 C 380.90 135.94 382.60 139.63 385.32 141.89 C 390.98 142.12 396.24 139.64 401.84 139.19 C 405.19 142.03 399.06 143.59 397.68 145.75 C 394.81 151.17 401.85 154.78 401.39 160.22 C 399.54 170.68 409.88 176.63 414.42 184.62 C 418.85 192.24 422.01 200.78 423.75 209.34 C 426.07 212.06 427.37 206.66 429.74 207.10 C 432.88 210.66 433.23 218.77 439.98 216.02 C 448.32 216.55 455.65 208.35 463.98 212.04 C 468.53 214.07 473.82 213.22 478.20 215.77 C 483.11 215.94 487.38 212.24 491.99 210.94 C 494.97 211.28 497.94 216.01 500.72 212.72 C 506.90 206.87 508.56 222.39 514.71 219.78 C 515.83 218.37 518.06 215.54 519.18 214.13 C 521.61 214.96 524.68 218.83 526.92 215.76 C 527.33 211.86 525.19 208.59 524.18 205.02 C 527.00 202.61 528.75 208.06 531.23 206.20 C 532.53 214.34 538.01 221.14 538.47 229.45 C 540.20 241.96 538.69 254.87 542.26 267.10 C 542.57 268.40 542.89 269.69 543.21 271.00 L 541.28 271.00 C 539.96 263.62 537.20 256.52 536.18 249.12 C 536.05 243.13 539.23 236.89 536.00 231.24 C 534.67 226.66 532.26 220.54 526.03 221.88 C 523.52 221.95 523.15 218.54 520.98 218.01 C 517.20 218.94 516.76 224.07 512.98 225.06 C 510.18 223.26 508.33 220.29 505.60 218.39 C 499.06 219.00 492.72 214.37 486.38 217.44 C 479.87 219.84 471.86 217.27 466.53 222.56 C 463.09 224.87 462.01 219.60 459.35 218.65 C 452.10 214.38 444.60 221.96 436.92 219.12 C 433.56 213.22 427.27 219.63 422.13 217.91 C 420.43 214.84 423.76 209.69 419.86 208.12 C 410.97 204.17 418.53 191.30 409.76 186.33 C 401.04 179.11 397.16 167.54 396.39 156.62 C 390.59 149.23 379.50 146.70 374.88 137.99 C 371.61 134.35 367.10 130.78 361.91 130.96 C 361.68 130.66 361.21 130.07 360.98 129.77 C 360.82 125.80 361.42 121.89 362.07 118.00 L 362.71 117.45 C 369.32 117.39 363.35 124.38 363.96 128.06 C 368.01 127.50 373.79 126.36 374.56 121.81 C 376.49 122.94 379.16 124.49 380.84 122.08 C 381.81 120.69 382.76 119.28 383.84 117.96 C 390.87 120.73 401.52 124.96 406.54 116.91 Z"/>
+            <path fill="#7d7b7a"
+                  d="M 474.07 115.81 C 478.35 113.11 482.10 118.66 484.57 121.36 C 491.68 131.21 500.89 139.14 510.19 146.84 C 517.88 153.23 529.07 156.97 532.95 167.01 C 537.28 177.42 538.19 188.85 542.66 199.23 C 551.40 222.33 547.67 247.59 555.22 271.00 L 552.10 271.00 C 545.10 248.69 549.53 224.52 540.46 202.68 C 533.36 187.03 532.77 167.18 517.73 156.32 C 512.21 152.57 508.01 146.65 501.92 143.92 L 501.13 143.68 C 497.90 143.12 493.47 141.26 494.64 137.20 C 494.01 137.13 492.76 136.99 492.14 136.92 C 487.20 129.21 481.98 120.20 474.07 115.81 Z"
+                  opacity="0.15"/>
+            <path fill="#747373"
+                  d="M 95.02 128.04 C 97.77 122.79 101.26 117.74 107.24 115.86 C 101.70 121.07 97.69 127.51 94.02 134.09 C 87.69 138.60 83.67 145.56 81.11 152.67 C 76.43 157.52 72.71 163.42 70.82 169.91 C 70.15 171.20 69.50 172.51 68.89 173.84 C 63.37 191.30 59.75 209.35 53.55 226.63 C 48.92 240.95 51.28 256.23 51.82 271.00 L 49.13 271.00 C 42.99 251.97 45.96 231.36 52.99 213.00 C 58.28 198.27 61.78 182.96 67.35 168.34 C 75.06 153.97 84.64 140.60 95.02 128.04 Z"
+                  opacity="0.15"/>
+            <path fill="#f2c491"
+                  d="M 107.24 115.86 L 108.10 115.47 C 109.17 118.50 104.74 120.40 104.11 123.07 C 101.49 125.72 105.22 128.72 105.00 131.74 C 103.48 133.05 98.28 133.52 100.68 136.27 C 103.08 140.50 106.73 134.45 110.00 136.79 C 109.22 137.98 108.22 139.01 107.23 140.03 C 100.16 145.42 97.04 154.35 93.16 162.10 C 86.01 167.37 81.36 159.52 81.11 152.67 C 83.67 145.56 87.69 138.60 94.02 134.09 C 97.69 127.51 101.70 121.07 107.24 115.86 Z"/>
+            <path fill="#fbd6b1"
+                  d="M 474.07 115.81 C 481.98 120.20 487.20 129.21 492.14 136.92 C 487.07 138.93 481.39 136.20 477.62 132.77 C 475.26 130.70 468.22 127.98 472.40 124.40 C 475.80 122.75 471.09 120.97 470.09 119.13 C 470.45 118.60 471.15 117.55 471.51 117.02 C 472.36 116.63 473.22 116.22 474.07 115.81 Z"/>
+            <path fill="#737272"
+                  d="M 368.85 151.21 C 361.74 142.77 353.36 128.01 362.07 118.00 C 361.42 121.89 360.82 125.80 360.98 129.77 C 361.30 144.76 376.09 153.97 383.17 165.85 C 389.14 174.44 391.94 184.80 396.85 194.00 C 398.67 200.06 404.41 208.88 397.67 213.88 C 387.14 216.67 383.52 204.16 376.97 198.96 C 376.01 197.86 375.08 196.74 374.15 195.63 C 371.00 187.81 363.28 180.36 354.37 181.60 C 351.51 180.97 348.73 180.30 345.87 179.76 C 362.67 172.64 374.18 190.38 384.71 200.27 C 386.46 203.75 394.44 205.08 394.07 199.96 C 390.74 181.70 382.01 164.45 368.85 151.21 Z"
+                  opacity="0.15"/>
+            <path fill="#eab57e"
+                  d="M 442.29 118.26 C 444.04 118.79 445.77 119.45 447.15 120.70 C 449.82 124.02 451.90 127.69 453.37 131.69 C 458.19 137.71 466.04 139.20 472.66 142.35 C 478.66 148.10 478.85 158.19 484.02 164.02 C 497.03 174.23 502.05 144.08 486.10 147.82 C 481.31 147.11 489.22 141.21 484.70 139.27 C 481.59 138.13 476.02 137.46 477.62 132.77 C 481.39 136.20 487.07 138.93 492.14 136.92 C 492.76 136.99 494.01 137.13 494.64 137.20 C 493.47 141.26 497.90 143.12 501.13 143.68 C 494.95 142.49 499.34 155.21 504.51 152.32 C 507.79 158.75 511.41 166.79 519.44 167.25 C 519.87 167.78 520.31 168.31 520.75 168.85 C 520.92 172.44 523.67 175.34 524.00 178.96 C 525.23 188.24 527.43 197.60 531.23 206.20 C 528.75 208.06 527.00 202.61 524.18 205.02 C 525.19 208.59 527.33 211.86 526.92 215.76 C 524.68 218.83 521.61 214.96 519.18 214.13 C 518.06 215.54 515.83 218.37 514.71 219.78 C 508.56 222.39 506.90 206.87 500.72 212.72 C 497.94 216.01 494.97 211.28 491.99 210.94 C 487.38 212.24 483.11 215.94 478.20 215.77 C 473.82 213.22 468.53 214.07 463.98 212.04 C 455.65 208.35 448.32 216.55 439.98 216.02 C 433.23 218.77 432.88 210.66 429.74 207.10 C 427.37 206.66 426.07 212.06 423.75 209.34 C 422.01 200.78 418.85 192.24 414.42 184.62 C 409.88 176.63 399.54 170.68 401.39 160.22 C 401.85 154.78 394.81 151.17 397.68 145.75 C 399.06 143.59 405.19 142.03 401.84 139.19 C 396.24 139.64 390.98 142.12 385.32 141.89 C 382.60 139.63 380.90 135.94 382.10 132.33 C 385.15 128.06 390.99 128.91 395.51 128.81 C 400.29 132.05 404.89 135.59 409.82 138.62 C 409.54 145.85 413.41 153.34 414.02 160.83 C 410.86 162.33 404.47 162.65 408.67 168.26 C 410.60 173.33 421.21 167.92 418.13 174.10 C 413.29 182.75 422.59 191.17 428.93 196.05 C 435.30 198.62 430.05 207.54 434.74 211.27 C 439.75 215.68 446.88 210.91 449.96 206.92 C 448.56 203.23 444.30 200.65 443.93 196.24 C 446.02 196.58 448.18 196.74 450.05 195.54 C 451.13 195.64 452.21 195.73 453.31 195.80 C 456.82 196.58 455.50 192.36 455.42 190.33 C 456.54 188.51 459.00 187.30 459.10 185.01 C 455.69 178.62 452.50 171.41 449.44 164.54 C 440.67 157.63 435.61 147.09 435.07 136.24 C 439.31 134.97 443.70 134.11 447.92 132.70 C 448.52 128.33 442.27 128.70 440.17 125.81 C 437.16 123.40 441.12 120.53 442.29 118.26 Z"/>
+            <path fill="#f3c390"
+                  d="M 464.14 126.52 C 466.65 126.06 466.84 116.35 470.09 119.13 C 471.09 120.97 475.80 122.75 472.40 124.40 C 468.22 127.98 475.26 130.70 477.62 132.77 C 476.02 137.46 481.59 138.13 484.70 139.27 C 489.22 141.21 481.31 147.11 486.10 147.82 C 502.05 144.08 497.03 174.23 484.02 164.02 C 478.85 158.19 478.66 148.10 472.66 142.35 C 466.04 139.20 458.19 137.71 453.37 131.69 C 451.90 127.69 449.82 124.02 447.15 120.70 C 452.83 122.61 458.35 124.94 464.14 126.52 Z"/>
+            <path fill="#b06941"
+                  d="M 184.22 128.49 C 189.51 127.87 192.36 122.66 197.18 120.89 C 197.23 121.91 197.23 122.94 197.21 123.97 C 192.75 128.58 187.22 131.71 181.48 134.45 C 177.65 138.74 173.34 142.62 168.73 146.08 C 168.02 142.01 171.72 138.67 174.97 136.87 C 178.93 135.04 179.60 129.18 184.22 128.49 Z"/>
+            <path fill="#ebba87"
+                  d="M 201.25 122.20 C 201.72 121.91 202.68 121.32 203.15 121.03 C 202.23 123.35 201.12 125.60 200.13 127.90 C 205.52 128.01 211.59 128.16 214.90 133.24 C 215.66 139.02 208.93 141.95 204.00 140.07 C 197.02 142.89 197.14 132.48 190.81 133.62 C 192.23 130.59 194.68 128.30 197.31 126.31 C 199.02 125.36 200.22 123.82 201.25 122.20 Z"/>
+            <path fill="#e5ad74"
+                  d="M 110.00 136.79 C 113.01 132.09 115.51 127.06 118.96 122.65 C 120.00 123.23 121.05 123.77 122.13 124.29 C 120.72 125.70 119.28 127.08 117.97 128.57 C 114.61 134.18 112.22 140.65 110.18 146.88 C 115.40 154.13 103.91 157.56 102.22 163.82 C 105.77 168.87 110.08 174.81 117.20 173.19 C 116.41 181.57 106.41 186.08 107.62 194.75 C 109.27 201.55 98.51 201.46 97.53 207.42 C 96.17 211.05 95.86 219.68 89.34 216.87 C 87.61 214.79 86.06 212.52 85.05 210.01 C 86.02 205.82 91.61 202.50 89.05 197.98 C 84.23 185.62 105.57 182.03 100.59 169.37 C 96.75 162.83 102.78 156.42 107.83 152.73 C 107.31 149.74 104.82 145.95 107.28 143.28 C 108.22 142.05 110.33 139.47 107.23 140.03 C 108.22 139.01 109.22 137.98 110.00 136.79 Z"/>
+            <path fill="#f8cf9d"
+                  d="M 122.13 124.29 C 123.33 123.88 124.53 123.46 125.74 123.07 C 126.37 126.92 131.42 123.80 134.11 124.27 C 137.95 123.62 139.34 127.83 139.10 130.91 C 136.65 132.73 133.84 134.40 132.87 137.49 C 131.47 140.03 130.10 142.60 128.44 145.00 C 126.66 143.02 124.05 142.36 121.77 141.21 C 120.50 137.21 121.76 131.64 117.97 128.57 C 119.28 127.08 120.72 125.70 122.13 124.29 Z"/>
+            <path fill="#1e1814"
+                  d="M 181.48 134.45 C 187.22 131.71 192.75 128.58 197.21 123.97 C 197.23 124.56 197.28 125.73 197.31 126.31 C 194.68 128.30 192.23 130.59 190.81 133.62 L 190.05 133.89 C 180.79 134.29 176.44 144.69 170.24 150.23 C 166.32 154.86 161.22 165.35 168.07 169.54 C 163.33 177.21 162.75 188.20 153.74 192.54 C 151.16 187.66 152.47 182.08 155.86 177.92 C 162.81 168.24 159.50 154.33 168.73 146.08 C 173.34 142.62 177.65 138.74 181.48 134.45 Z"
+                  opacity="0.15"/>
+            <path fill="#4b4a48"
+                  d="M 228.41 123.83 C 229.78 132.64 224.84 140.44 220.98 147.87 C 212.41 161.77 208.11 178.94 212.19 194.98 C 216.63 194.94 219.85 191.16 223.89 189.74 C 222.65 192.69 220.87 195.35 218.98 197.91 C 215.02 199.76 211.45 208.81 206.39 205.65 C 199.51 195.25 209.45 183.81 208.84 172.76 C 211.66 164.36 215.86 156.41 217.81 147.74 C 221.06 142.04 224.38 136.36 226.25 130.02 C 227.16 128.03 227.90 125.96 228.41 123.83 Z"
+                  opacity="0.15"/>
+            <path fill="#cb824f"
+                  d="M 395.51 128.81 C 404.51 126.91 414.58 132.40 420.33 139.46 C 425.19 139.49 428.52 143.37 430.93 147.04 C 435.35 158.05 444.25 166.58 447.90 177.98 C 450.17 184.11 447.47 191.39 453.31 195.80 C 452.21 195.73 451.13 195.64 450.05 195.54 C 447.80 193.23 445.60 190.87 443.81 188.21 C 443.28 183.28 442.64 176.26 436.84 175.03 C 435.91 173.80 434.99 172.56 434.23 171.22 C 437.78 165.28 431.40 157.79 427.29 153.86 C 426.97 150.38 424.12 148.43 420.87 148.03 C 417.59 144.46 414.07 141.02 409.82 138.62 C 404.89 135.59 400.29 132.05 395.51 128.81 Z"/>
+            <path fill="#eeba85"
+                  d="M 110.18 146.88 C 112.22 140.65 114.61 134.18 117.97 128.57 C 121.76 131.64 120.50 137.21 121.77 141.21 C 124.05 142.36 126.66 143.02 128.44 145.00 C 121.11 152.69 119.93 163.43 117.20 173.19 C 110.08 174.81 105.77 168.87 102.22 163.82 C 103.91 157.56 115.40 154.13 110.18 146.88 Z"/>
+            <path fill="#dba068"
+                  d="M 207.81 151.83 C 216.56 146.87 216.92 134.15 226.25 130.02 C 224.38 136.36 221.06 142.04 217.81 147.74 C 215.70 151.01 213.80 154.41 211.97 157.84 C 209.14 158.02 204.98 158.74 204.31 161.96 C 206.71 172.45 194.85 178.65 194.74 188.88 C 188.36 199.26 190.38 213.28 180.75 221.88 C 168.66 223.66 158.15 215.86 147.08 213.97 C 141.86 217.47 137.21 222.71 130.11 221.73 C 122.88 219.41 115.75 216.37 108.11 215.86 C 104.68 215.04 104.23 210.83 103.62 207.94 C 98.15 211.30 95.28 224.61 87.23 219.80 C 83.80 216.91 74.71 224.13 76.41 215.42 C 75.38 211.49 71.28 219.49 69.24 220.26 C 66.74 225.25 60.47 219.79 57.82 223.93 C 62.56 207.29 68.20 191.01 68.89 173.84 C 69.50 172.51 70.15 171.20 70.82 169.91 C 72.29 164.96 82.69 161.07 78.70 170.58 C 72.76 176.07 68.78 196.22 81.79 195.71 C 85.76 190.31 82.99 183.33 86.61 177.82 C 87.01 171.75 91.52 167.67 93.16 162.10 C 97.04 154.35 100.16 145.42 107.23 140.03 C 110.33 139.47 108.22 142.05 107.28 143.28 C 104.82 145.95 107.31 149.74 107.83 152.73 C 102.78 156.42 96.75 162.83 100.59 169.37 C 105.57 182.03 84.23 185.62 89.05 197.98 C 91.61 202.50 86.02 205.82 85.05 210.01 C 86.06 212.52 87.61 214.79 89.34 216.87 C 95.86 219.68 96.17 211.05 97.53 207.42 C 98.51 201.46 109.27 201.55 107.62 194.75 C 106.41 186.08 116.41 181.57 117.20 173.19 C 119.93 163.43 121.11 152.69 128.44 145.00 C 130.10 142.60 131.47 140.03 132.87 137.49 C 133.27 139.17 135.98 141.47 133.93 142.84 C 128.99 146.72 124.93 152.62 123.68 158.64 C 128.22 164.70 119.44 167.75 119.14 173.32 C 117.32 180.28 113.98 186.77 112.16 193.68 C 114.56 195.04 117.43 197.09 115.00 199.99 C 109.50 206.31 118.66 220.13 126.17 215.17 C 128.81 214.35 130.82 217.00 133.08 217.93 C 139.65 214.29 142.24 205.07 149.70 203.05 C 151.09 207.36 152.82 211.59 156.69 214.30 C 163.31 221.33 173.44 216.53 181.75 216.74 C 183.61 213.01 182.44 207.91 186.66 205.65 C 191.95 199.48 184.29 189.17 191.45 183.45 C 202.41 176.00 195.92 158.71 207.81 151.83 Z"/>
+            <path fill="#494645"
+                  d="M 360.98 129.77 C 361.21 130.07 361.68 130.66 361.91 130.96 C 362.46 132.68 362.96 134.43 363.79 136.04 C 369.25 147.15 379.71 154.47 385.84 165.11 C 389.55 171.04 391.49 177.83 395.03 183.85 C 394.81 188.01 397.60 191.35 399.09 195.02 C 398.53 194.77 397.41 194.26 396.85 194.00 C 391.94 184.80 389.14 174.44 383.17 165.85 C 376.09 153.97 361.30 144.76 360.98 129.77 Z"
+                  opacity="0.15"/>
+            <path fill="#cf8e56"
+                  d="M 361.91 130.96 C 367.10 130.78 371.61 134.35 374.88 137.99 C 379.50 146.70 390.59 149.23 396.39 156.62 C 397.16 167.54 401.04 179.11 409.76 186.33 C 418.53 191.30 410.97 204.17 419.86 208.12 C 423.76 209.69 420.43 214.84 422.13 217.91 C 427.27 219.63 433.56 213.22 436.92 219.12 C 440.36 225.50 448.73 216.93 451.99 223.00 C 454.71 228.30 461.17 230.46 466.73 230.87 C 470.68 226.92 474.25 220.55 481.02 221.99 C 485.92 222.83 490.66 222.85 494.97 220.24 C 501.12 222.36 507.50 224.13 512.08 229.03 C 516.85 226.73 523.80 223.96 527.61 229.39 C 529.43 232.54 532.89 231.79 536.00 231.24 C 539.23 236.89 536.05 243.13 536.18 249.12 C 537.20 256.52 539.96 263.62 541.28 271.00 L 527.10 271.00 C 527.93 266.27 526.78 261.12 522.92 258.10 C 517.50 255.08 516.22 248.32 511.08 244.91 C 507.02 241.91 515.46 235.57 509.80 234.38 C 506.77 234.52 504.40 237.80 501.24 236.89 C 498.11 234.34 499.73 230.40 500.04 227.08 C 494.07 226.40 487.69 228.20 481.96 226.02 C 478.37 224.22 472.71 228.29 475.43 232.59 C 475.04 238.39 480.41 250.49 471.36 251.50 C 466.33 252.63 466.83 262.27 460.29 260.85 C 454.40 257.20 461.55 251.83 462.94 248.04 C 460.03 243.06 453.13 240.93 450.23 235.69 C 448.35 231.89 456.07 231.37 453.46 227.64 C 452.77 224.45 449.30 226.66 447.42 227.36 C 441.10 230.10 438.49 220.07 432.33 222.34 C 428.01 222.15 421.55 224.76 419.51 219.55 C 419.33 214.67 416.94 207.92 411.06 207.86 C 407.47 203.47 409.74 196.95 406.55 192.44 C 399.15 181.43 393.80 168.90 385.51 158.54 C 386.22 151.09 378.18 149.26 374.07 144.93 C 370.79 141.24 367.82 137.24 364.13 133.92 C 364.04 134.45 363.88 135.51 363.79 136.04 C 362.96 134.43 362.46 132.68 361.91 130.96 Z"/>
+            <path fill="#302d2c"
+                  d="M 170.24 150.23 C 176.44 144.69 180.79 134.29 190.05 133.89 C 184.99 140.78 177.42 145.92 175.76 154.90 C 172.14 159.20 171.48 165.10 168.07 169.54 C 161.22 165.35 166.32 154.86 170.24 150.23 Z"
+                  opacity="0.15"/>
+            <path fill="#b67243"
+                  d="M 364.13 133.92 C 367.82 137.24 370.79 141.24 374.07 144.93 C 378.18 149.26 386.22 151.09 385.51 158.54 C 393.80 168.90 399.15 181.43 406.55 192.44 C 409.74 196.95 407.47 203.47 411.06 207.86 C 411.84 211.80 411.88 215.82 411.14 219.76 C 414.96 223.24 420.37 224.35 424.58 227.36 C 431.28 226.29 441.36 226.49 445.13 233.88 C 445.35 238.47 452.29 238.32 451.93 242.71 C 443.62 244.22 435.47 247.12 429.71 253.74 C 425.58 249.76 419.05 247.60 417.25 241.69 C 416.55 239.17 414.12 238.03 411.97 236.98 C 411.55 229.46 409.69 222.14 408.34 214.72 C 406.91 203.25 401.12 193.41 395.03 183.85 C 391.49 177.83 389.55 171.04 385.84 165.11 C 379.71 154.47 369.25 147.15 363.79 136.04 C 363.88 135.51 364.04 134.45 364.13 133.92 Z"/>
+            <path fill="#f2c18b"
+                  d="M 442.97 138.00 C 452.98 134.53 450.98 151.49 460.51 148.79 C 461.09 146.22 464.05 146.99 465.97 147.14 C 473.08 156.16 475.93 167.55 481.55 177.41 C 483.28 183.13 488.64 187.37 490.00 192.87 C 487.11 193.86 486.47 197.46 485.30 200.81 C 486.60 203.07 488.77 205.12 488.00 208.00 C 479.26 212.42 485.03 201.23 479.34 201.60 C 473.98 201.66 471.88 196.15 469.87 192.08 C 466.04 187.13 462.84 181.74 459.35 176.56 C 461.50 165.99 450.80 159.07 444.96 152.00 C 443.72 147.46 443.37 142.68 442.97 138.00 Z"/>
+            <path fill="#f4c38c"
+                  d="M 414.02 160.83 C 413.41 153.34 409.54 145.85 409.82 138.62 C 414.07 141.02 417.59 144.46 420.87 148.03 C 425.28 155.79 430.40 163.12 434.23 171.22 C 434.99 172.56 435.91 173.80 436.84 175.03 C 438.75 179.62 440.80 184.21 443.81 188.21 C 445.60 190.87 447.80 193.23 450.05 195.54 C 448.18 196.74 446.02 196.58 443.93 196.24 C 444.30 200.65 448.56 203.23 449.96 206.92 C 446.88 210.91 439.75 215.68 434.74 211.27 C 430.05 207.54 435.30 198.62 428.93 196.05 C 422.59 191.17 413.29 182.75 418.13 174.10 C 421.21 167.92 410.60 173.33 408.67 168.26 C 404.47 162.65 410.86 162.33 414.02 160.83 Z"/>
+            <path fill="#efc295"
+                  d="M 504.51 152.32 C 499.34 155.21 494.95 142.49 501.13 143.68 L 501.92 143.92 C 504.47 149.11 508.97 152.86 513.17 156.66 C 514.35 160.68 517.16 163.84 519.44 167.25 C 511.41 166.79 507.79 158.75 504.51 152.32 Z"/>
+            <path fill="#6b6b6b"
+                  d="M 501.92 143.92 C 508.01 146.65 512.21 152.57 517.73 156.32 C 532.77 167.18 533.36 187.03 540.46 202.68 C 549.53 224.52 545.10 248.69 552.10 271.00 L 548.12 271.00 C 545.06 248.36 546.99 224.67 537.79 203.17 C 530.40 187.46 529.38 166.63 513.17 156.66 C 508.97 152.86 504.47 149.11 501.92 143.92 Z"
+                  opacity="0.15"/>
+            <path fill="#d38755"
+                  d="M 465.97 147.14 C 469.89 142.81 477.34 150.25 475.11 156.02 C 477.10 162.99 481.07 169.98 481.55 177.41 C 475.93 167.55 473.08 156.16 465.97 147.14 Z"/>
+            <path fill="#2c2a29"
+                  d="M 211.97 157.84 C 213.80 154.41 215.70 151.01 217.81 147.74 C 215.86 156.41 211.66 164.36 208.84 172.76 C 205.33 183.73 199.30 194.11 198.50 205.81 C 198.68 210.06 200.71 218.59 206.74 216.80 C 210.69 213.32 213.69 208.97 216.86 204.82 C 216.81 205.28 216.72 206.20 216.68 206.67 C 216.07 209.20 215.33 211.72 214.09 214.03 C 209.63 219.93 206.63 227.10 200.66 231.77 C 197.66 233.34 195.54 228.93 196.54 226.42 C 196.11 217.21 194.30 207.90 196.94 198.86 C 202.05 186.82 207.50 174.77 209.95 161.86 C 210.64 160.53 211.31 159.19 211.97 157.84 Z"
+                  opacity="0.15"/>
+            <path fill="#605f5f"
+                  d="M 212.19 194.98 C 208.11 178.94 212.41 161.77 220.98 147.87 C 218.47 157.58 212.40 166.82 217.01 177.01 C 216.28 187.17 226.05 183.47 232.02 181.84 C 230.59 183.07 229.21 184.34 227.89 185.69 C 226.52 187.01 225.18 188.35 223.89 189.74 C 219.85 191.16 216.63 194.94 212.19 194.98 Z"
+                  opacity="0.15"/>
+            <path fill="#a3542e"
+                  d="M 420.87 148.03 C 424.12 148.43 426.97 150.38 427.29 153.86 C 431.40 157.79 437.78 165.28 434.23 171.22 C 430.40 163.12 425.28 155.79 420.87 148.03 Z"/>
+            <path fill="#eab681"
+                  d="M 81.11 152.67 C 81.36 159.52 86.01 167.37 93.16 162.10 C 91.52 167.67 87.01 171.75 86.61 177.82 C 82.99 183.33 85.76 190.31 81.79 195.71 C 68.78 196.22 72.76 176.07 78.70 170.58 C 82.69 161.07 72.29 164.96 70.82 169.91 C 72.71 163.42 76.43 157.52 81.11 152.67 Z"/>
+            <path fill="#eebc84"
+                  d="M 175.76 154.90 C 183.37 150.58 188.91 157.20 195.31 160.72 C 197.90 165.26 192.42 169.66 190.28 173.19 C 190.35 182.12 182.61 188.58 182.46 197.54 C 182.55 203.90 176.03 206.75 171.21 202.94 C 172.94 208.28 170.09 213.11 166.85 217.08 C 155.72 218.02 151.23 198.96 165.10 199.92 C 162.97 195.93 158.70 192.87 154.03 193.37 L 153.74 192.54 C 162.75 188.20 163.33 177.21 168.07 169.54 C 171.48 165.10 172.14 159.20 175.76 154.90 Z"/>
+            <path fill="#585857"
+                  d="M 513.17 156.66 C 529.38 166.63 530.40 187.46 537.79 203.17 C 546.99 224.67 545.06 248.36 548.12 271.00 L 546.08 271.00 C 543.64 253.83 545.13 236.22 540.58 219.36 C 537.44 206.61 531.58 194.78 527.61 182.30 C 525.43 177.83 525.67 171.49 520.75 168.85 C 520.31 168.31 519.87 167.78 519.44 167.25 C 517.16 163.84 514.35 160.68 513.17 156.66 Z"
+                  opacity="0.15"/>
+            <path fill="#d3915a"
+                  d="M 204.31 161.96 C 204.98 158.74 209.14 158.02 211.97 157.84 C 211.31 159.19 210.64 160.53 209.95 161.86 C 204.93 170.92 202.35 181.19 197.12 190.20 C 190.64 199.05 191.29 210.57 189.89 220.96 C 186.51 221.54 184.17 223.64 182.47 226.52 C 178.54 231.23 176.09 220.74 171.01 223.97 C 162.17 224.97 154.84 213.92 146.08 219.07 C 141.84 225.15 132.17 229.09 125.87 224.17 C 118.74 219.18 109.43 220.48 101.99 215.99 C 97.31 218.70 95.08 223.88 91.69 227.87 C 86.52 230.57 86.46 224.13 82.70 223.32 C 73.60 222.32 65.42 226.32 56.62 227.65 C 57.04 226.41 57.42 225.17 57.82 223.93 C 60.47 219.79 66.74 225.25 69.24 220.26 C 71.28 219.49 75.38 211.49 76.41 215.42 C 74.71 224.13 83.80 216.91 87.23 219.80 C 95.28 224.61 98.15 211.30 103.62 207.94 C 104.23 210.83 104.68 215.04 108.11 215.86 C 115.75 216.37 122.88 219.41 130.11 221.73 C 137.21 222.71 141.86 217.47 147.08 213.97 C 158.15 215.86 168.66 223.66 180.75 221.88 C 190.38 213.28 188.36 199.26 194.74 188.88 C 194.85 178.65 206.71 172.45 204.31 161.96 Z"/>
+            <path fill="#15100b"
+                  d="M 197.12 190.20 C 202.35 181.19 204.93 170.92 209.95 161.86 C 207.50 174.77 202.05 186.82 196.94 198.86 C 191.48 208.15 194.04 219.75 192.16 230.03 C 192.21 235.27 190.99 243.81 196.03 247.05 C 204.19 239.60 208.60 228.37 213.89 218.71 C 213.98 225.26 209.69 230.80 207.44 236.74 C 203.55 241.87 204.02 251.34 195.75 251.56 C 192.70 251.10 191.47 248.19 190.17 245.80 C 189.63 243.09 189.57 240.31 189.05 237.60 C 188.58 234.80 188.21 231.97 187.92 229.15 C 188.63 226.44 189.46 223.74 189.89 220.96 C 191.29 210.57 190.64 199.05 197.12 190.20 Z"
+                  opacity="0.15"/>
+            <path fill="#eeb97f"
+                  d="M 142.29 168.30 C 145.64 166.79 142.93 171.33 143.13 173.01 C 144.54 176.89 141.07 180.12 138.52 182.56 C 137.46 186.44 137.64 191.62 134.34 194.48 C 132.55 198.48 138.71 196.78 140.91 198.15 C 144.72 209.63 129.26 212.09 121.31 211.68 C 117.97 211.50 114.87 207.90 116.58 204.65 C 119.24 195.93 121.86 186.93 127.64 179.67 C 130.98 177.05 129.02 170.83 133.98 169.99 C 136.65 173.53 139.54 169.52 142.29 168.30 Z"/>
+            <path fill="#464443"
+                  d="M 520.75 168.85 C 525.67 171.49 525.43 177.83 527.61 182.30 C 531.58 194.78 537.44 206.61 540.58 219.36 C 545.13 236.22 543.64 253.83 546.08 271.00 L 543.21 271.00 C 542.89 269.69 542.57 268.40 542.26 267.10 C 542.64 266.96 543.41 266.69 543.80 266.55 C 542.08 244.77 542.54 222.30 532.82 202.16 C 529.36 194.63 528.26 186.07 524.00 178.96 C 523.67 175.34 520.92 172.44 520.75 168.85 Z"
+                  opacity="0.15"/>
+            <path fill="#3a3a3a"
+                  d="M 198.50 205.81 C 199.30 194.11 205.33 183.73 208.84 172.76 C 209.45 183.81 199.51 195.25 206.39 205.65 C 211.45 208.81 215.02 199.76 218.98 197.91 C 218.32 200.23 217.62 202.53 216.86 204.82 C 213.69 208.97 210.69 213.32 206.74 216.80 C 200.71 218.59 198.68 210.06 198.50 205.81 Z"
+                  opacity="0.15"/>
+            <path fill="#534f4d"
+                  d="M 53.55 226.63 C 59.75 209.35 63.37 191.30 68.89 173.84 C 68.20 191.01 62.56 207.29 57.82 223.93 C 57.42 225.17 57.04 226.41 56.62 227.65 C 55.97 228.65 55.26 229.64 54.91 230.80 C 54.14 244.20 54.50 257.67 52.81 271.00 L 51.82 271.00 C 51.28 256.23 48.92 240.95 53.55 226.63 Z"
+                  opacity="0.15"/>
+            <path fill="#9c4c29"
+                  d="M 436.84 175.03 C 442.64 176.26 443.28 183.28 443.81 188.21 C 440.80 184.21 438.75 179.62 436.84 175.03 Z"/>
+            <path fill="#f6c799"
+                  d="M 232.02 181.84 C 236.85 182.78 241.35 176.24 247.07 178.84 C 247.33 179.11 247.85 179.63 248.11 179.90 C 248.13 180.36 248.17 181.28 248.19 181.74 C 240.78 179.95 244.06 191.89 242.06 196.35 C 240.03 196.84 237.97 196.47 235.94 196.23 C 236.66 202.08 235.18 209.05 238.81 214.19 C 239.96 216.08 242.46 219.04 239.81 220.80 C 234.65 225.97 227.04 218.91 224.96 214.03 C 220.62 207.65 225.01 200.09 226.26 193.56 C 228.06 191.25 230.01 188.50 227.89 185.69 C 229.21 184.34 230.59 183.07 232.02 181.84 Z"/>
+            <path fill="#35302b"
+                  d="M 524.00 178.96 C 528.26 186.07 529.36 194.63 532.82 202.16 C 542.54 222.30 542.08 244.77 543.80 266.55 C 543.41 266.69 542.64 266.96 542.26 267.10 C 538.69 254.87 540.20 241.96 538.47 229.45 C 538.01 221.14 532.53 214.34 531.23 206.20 C 527.43 197.60 525.23 188.24 524.00 178.96 Z"
+                  opacity="0.15"/>
+            <path fill="#7a7a7a"
+                  d="M 248.11 179.90 C 251.67 182.44 251.24 187.17 251.07 191.01 C 250.50 208.28 258.32 224.23 260.99 241.00 C 262.50 252.01 256.13 261.43 251.92 271.00 L 246.63 271.00 C 254.98 255.42 258.00 236.90 252.15 219.91 C 246.94 207.95 251.24 194.89 248.25 182.69 L 248.19 181.74 C 248.17 181.28 248.13 180.36 248.11 179.90 Z"
+                  opacity="0.15"/>
+            <path fill="#e6ad7d"
+                  d="M 342.89 181.65 C 343.84 180.95 344.83 180.32 345.87 179.76 C 348.73 180.30 351.51 180.97 354.37 181.60 C 355.28 184.16 351.80 184.71 351.91 187.12 C 354.69 186.26 357.42 185.27 360.19 184.34 C 363.90 194.98 363.30 206.22 364.68 217.19 C 364.37 221.67 371.59 223.13 373.62 219.61 C 374.70 215.39 375.92 211.16 376.46 206.82 C 375.29 203.24 372.56 199.50 374.15 195.63 C 375.08 196.74 376.01 197.86 376.97 198.96 C 378.52 202.96 379.95 207.06 381.98 210.86 C 382.78 213.91 383.72 216.94 385.01 219.82 L 385.28 220.62 C 382.34 224.66 381.34 230.25 375.88 232.00 C 368.94 235.20 370.48 226.03 364.40 226.48 C 356.21 218.92 360.84 205.72 360.08 196.16 C 358.35 196.63 356.65 197.17 354.94 197.70 C 347.44 194.29 352.13 182.42 342.89 181.65 Z"/>
+            <path fill="#dca371"
+                  d="M 242.06 196.35 C 244.06 191.89 240.78 179.95 248.19 181.74 L 248.25 182.69 C 248.18 183.20 248.03 184.23 247.95 184.75 C 244.85 199.49 243.44 214.86 250.44 228.72 L 250.17 229.68 C 246.68 231.05 244.39 235.19 240.17 233.87 C 239.08 233.32 237.93 232.88 236.84 232.35 C 245.91 226.94 243.99 212.93 240.21 204.46 C 245.29 204.03 244.23 199.45 242.06 196.35 Z"/>
+            <path fill="#f2c092"
+                  d="M 354.37 181.60 C 363.28 180.36 371.00 187.81 374.15 195.63 C 372.56 199.50 375.29 203.24 376.46 206.82 C 375.92 211.16 374.70 215.39 373.62 219.61 C 371.59 223.13 364.37 221.67 364.68 217.19 C 363.30 206.22 363.90 194.98 360.19 184.34 C 357.42 185.27 354.69 186.26 351.91 187.12 C 351.80 184.71 355.28 184.16 354.37 181.60 Z"/>
+            <path fill="#be7b4d"
+                  d="M 341.62 182.79 C 341.93 182.50 342.57 181.93 342.89 181.65 C 352.13 182.42 347.44 194.29 354.94 197.70 C 352.72 198.89 349.02 202.47 352.77 204.13 C 358.95 205.23 352.77 211.52 353.66 215.37 C 354.88 218.17 355.99 220.99 354.16 223.81 C 351.83 230.92 358.91 233.71 360.78 239.23 C 369.72 241.26 372.30 253.22 373.03 261.05 C 363.77 252.23 361.84 238.16 350.03 231.92 C 350.02 232.69 349.99 234.23 349.98 235.00 C 349.23 232.54 348.85 230.06 347.98 227.67 L 347.95 227.08 C 350.59 211.81 344.50 197.44 341.62 182.79 Z"/>
+            <path fill="#646464"
+                  d="M 248.25 182.69 C 251.24 194.89 246.94 207.95 252.15 219.91 C 258.00 236.90 254.98 255.42 246.63 271.00 L 240.75 271.00 C 248.42 255.70 255.51 237.59 249.60 220.54 C 245.53 209.03 247.60 196.62 247.95 184.75 C 248.03 184.23 248.18 183.20 248.25 182.69 Z"
+                  opacity="0.15"/>
+            <path fill="#504844"
+                  d="M 340.64 186.77 C 340.82 185.41 341.10 184.06 341.62 182.79 C 344.50 197.44 350.59 211.81 347.95 227.08 C 347.71 213.28 344.23 200.01 340.64 186.77 Z"
+                  opacity="0.15"/>
+            <path fill="#2f2e2d"
+                  d="M 395.03 183.85 C 401.12 193.41 406.91 203.25 408.34 214.72 C 407.71 224.16 408.86 237.17 403.92 244.90 C 398.61 239.50 394.90 231.29 387.90 226.92 C 386.95 224.85 386.08 222.75 385.28 220.62 L 385.01 219.82 C 390.50 223.41 394.98 230.59 402.73 227.82 C 408.41 222.75 406.63 213.09 404.35 206.73 C 402.62 202.81 401.01 198.84 399.09 195.02 C 397.60 191.35 394.81 188.01 395.03 183.85 Z"
+                  opacity="0.15"/>
+            <path fill="#4b4947"
+                  d="M 250.44 228.72 C 243.44 214.86 244.85 199.49 247.95 184.75 C 247.60 196.62 245.53 209.03 249.60 220.54 C 255.51 237.59 248.42 255.70 240.75 271.00 L 235.78 271.00 C 242.90 258.17 251.42 243.77 250.44 228.72 Z"
+                  opacity="0.15"/>
+            <path fill="#de9d75"
+                  d="M 223.89 189.74 C 225.18 188.35 226.52 187.01 227.89 185.69 C 230.01 188.50 228.06 191.25 226.26 193.56 C 222.37 197.35 221.94 203.21 220.30 208.15 C 220.18 211.84 222.11 218.51 216.64 218.28 C 220.98 214.87 219.31 210.53 216.68 206.67 C 216.72 206.20 216.81 205.28 216.86 204.82 C 217.62 202.53 218.32 200.23 218.98 197.91 C 220.87 195.35 222.65 192.69 223.89 189.74 Z"/>
+            <path fill="#6f6f6f"
+                  d="M 344.81 219.02 C 345.19 208.02 339.52 197.65 340.64 186.77 C 344.23 200.01 347.71 213.28 347.95 227.08 L 347.98 227.67 C 346.23 235.70 350.91 242.92 354.06 249.92 C 356.99 257.14 360.30 264.22 364.16 271.00 L 361.24 271.00 C 354.49 254.18 342.94 238.03 344.81 219.02 Z"
+                  opacity="0.15"/>
+            <path fill="#eab581"
+                  d="M 220.30 208.15 C 221.94 203.21 222.37 197.35 226.26 193.56 C 225.01 200.09 220.62 207.65 224.96 214.03 C 227.04 218.91 234.65 225.97 239.81 220.80 C 242.46 219.04 239.96 216.08 238.81 214.19 C 235.18 209.05 236.66 202.08 235.94 196.23 C 237.97 196.47 240.03 196.84 242.06 196.35 C 244.23 199.45 245.29 204.03 240.21 204.46 C 243.99 212.93 245.91 226.94 236.84 232.35 C 236.38 232.15 235.45 231.74 234.99 231.54 C 232.72 228.32 228.71 228.10 225.18 228.83 C 221.59 226.28 217.46 223.90 215.79 219.59 C 216.00 219.27 216.42 218.61 216.64 218.28 C 222.11 218.51 220.18 211.84 220.30 208.15 Z"/>
+            <path fill="#5a5a5a"
+                  d="M 396.85 194.00 C 397.41 194.26 398.53 194.77 399.09 195.02 C 401.01 198.84 402.62 202.81 404.35 206.73 C 404.64 211.96 404.71 223.32 395.97 221.09 C 389.20 221.88 386.66 214.27 381.98 210.86 C 379.95 207.06 378.52 202.96 376.97 198.96 C 383.52 204.16 387.14 216.67 397.67 213.88 C 404.41 208.88 398.67 200.06 396.85 194.00 Z"
+                  opacity="0.15"/>
+            <path fill="#dfa26c"
+                  d="M 354.94 197.70 C 356.65 197.17 358.35 196.63 360.08 196.16 C 360.84 205.72 356.21 218.92 364.40 226.48 C 370.48 226.03 368.94 235.20 375.88 232.00 C 381.34 230.25 382.34 224.66 385.28 220.62 C 386.08 222.75 386.95 224.85 387.90 226.92 C 389.27 232.17 390.35 237.89 394.19 241.96 C 395.09 245.26 390.65 248.55 393.78 251.19 C 395.36 253.13 399.00 252.71 399.49 255.56 C 401.27 258.74 397.28 261.76 399.01 264.91 C 399.91 267.59 402.51 269.09 404.42 271.00 L 380.02 271.00 C 378.96 265.09 382.40 257.22 377.36 252.65 C 373.91 247.79 370.55 242.65 369.25 236.76 C 362.30 235.40 358.92 228.43 354.16 223.81 C 355.99 220.99 354.88 218.17 353.66 215.37 C 352.77 211.52 358.95 205.23 352.77 204.13 C 349.02 202.47 352.72 198.89 354.94 197.70 Z"/>
+            <path fill="#1e1e1e"
+                  d="M 192.16 230.03 C 194.04 219.75 191.48 208.15 196.94 198.86 C 194.30 207.90 196.11 217.21 196.54 226.42 C 195.54 228.93 197.66 233.34 200.66 231.77 C 206.63 227.10 209.63 219.93 214.09 214.03 C 214.00 215.59 213.96 217.15 213.89 218.71 C 208.60 228.37 204.19 239.60 196.03 247.05 C 190.99 243.81 192.21 235.27 192.16 230.03 Z"
+                  opacity="0.15"/>
+            <path fill="#d18a59"
+                  d="M 214.09 214.03 C 215.33 211.72 216.07 209.20 216.68 206.67 C 219.31 210.53 220.98 214.87 216.64 218.28 C 216.42 218.61 216.00 219.27 215.79 219.59 C 216.95 225.25 215.41 231.91 217.64 237.79 C 215.21 239.55 212.05 241.17 213.06 244.75 C 208.07 244.65 206.24 247.41 206.46 251.85 C 200.05 249.61 200.22 258.20 198.50 262.13 C 197.44 258.68 195.09 255.31 195.75 251.56 C 204.02 251.34 203.55 241.87 207.44 236.74 C 209.69 230.80 213.98 225.26 213.89 218.71 C 213.96 217.15 214.00 215.59 214.09 214.03 Z"/>
+            <path fill="#444343"
+                  d="M 404.35 206.73 C 406.63 213.09 408.41 222.75 402.73 227.82 C 394.98 230.59 390.50 223.41 385.01 219.82 C 383.72 216.94 382.78 213.91 381.98 210.86 C 386.66 214.27 389.20 221.88 395.97 221.09 C 404.71 223.32 404.64 211.96 404.35 206.73 Z"
+                  opacity="0.15"/>
+            <path fill="#c48147"
+                  d="M 411.06 207.86 C 416.94 207.92 419.33 214.67 419.51 219.55 C 421.55 224.76 428.01 222.15 432.33 222.34 C 438.49 220.07 441.10 230.10 447.42 227.36 C 449.30 226.66 452.77 224.45 453.46 227.64 C 456.07 231.37 448.35 231.89 450.23 235.69 C 453.13 240.93 460.03 243.06 462.94 248.04 C 461.55 251.83 454.40 257.20 460.29 260.85 C 466.83 262.27 466.33 252.63 471.36 251.50 C 480.41 250.49 475.04 238.39 475.43 232.59 C 472.71 228.29 478.37 224.22 481.96 226.02 C 487.69 228.20 494.07 226.40 500.04 227.08 C 499.73 230.40 498.11 234.34 501.24 236.89 C 504.40 237.80 506.77 234.52 509.80 234.38 C 515.46 235.57 507.02 241.91 511.08 244.91 C 516.22 248.32 517.50 255.08 522.92 258.10 C 526.78 261.12 527.93 266.27 527.10 271.00 L 434.48 271.00 C 428.91 263.72 424.18 248.02 412.17 252.90 C 410.78 252.24 410.04 250.74 408.98 249.69 C 409.50 245.34 409.90 240.92 411.97 236.98 C 414.12 238.03 416.55 239.17 417.25 241.69 C 419.05 247.60 425.58 249.76 429.71 253.74 C 435.47 247.12 443.62 244.22 451.93 242.71 C 452.29 238.32 445.35 238.47 445.13 233.88 C 441.36 226.49 431.28 226.29 424.58 227.36 C 420.37 224.35 414.96 223.24 411.14 219.76 C 411.88 215.82 411.84 211.80 411.06 207.86 Z"/>
+            <path fill="#1f1b17"
+                  d="M 408.34 214.72 C 409.69 222.14 411.55 229.46 411.97 236.98 C 409.90 240.92 409.50 245.34 408.98 249.69 C 404.25 259.99 396.11 248.20 394.19 241.96 C 390.35 237.89 389.27 232.17 387.90 226.92 C 394.90 231.29 398.61 239.50 403.92 244.90 C 408.86 237.17 407.71 224.16 408.34 214.72 Z"
+                  opacity="0.15"/>
+            <path fill="#cb854f"
+                  d="M 101.99 215.99 C 109.43 220.48 118.74 219.18 125.87 224.17 C 132.17 229.09 141.84 225.15 146.08 219.07 C 154.84 213.92 162.17 224.97 171.01 223.97 C 176.09 220.74 178.54 231.23 182.47 226.52 C 184.17 223.64 186.51 221.54 189.89 220.96 C 189.46 223.74 188.63 226.44 187.92 229.15 C 183.77 227.95 181.33 230.80 177.34 230.77 C 174.20 225.10 167.38 225.68 161.75 225.19 C 160.11 224.55 158.62 223.61 157.09 222.77 C 149.76 220.58 144.31 229.70 137.30 231.34 C 128.78 234.49 124.54 223.75 116.36 224.53 C 111.19 224.54 106.52 217.20 101.79 221.77 C 96.97 227.79 88.13 235.36 81.87 226.15 C 73.01 228.37 64.13 230.98 54.91 230.80 C 55.26 229.64 55.97 228.65 56.62 227.65 C 65.42 226.32 73.60 222.32 82.70 223.32 C 86.46 224.13 86.52 230.57 91.69 227.87 C 95.08 223.88 97.31 218.70 101.99 215.99 Z"/>
+            <path fill="#d99c60"
+                  d="M 486.38 217.44 C 492.72 214.37 499.06 219.00 505.60 218.39 C 508.33 220.29 510.18 223.26 512.98 225.06 C 516.76 224.07 517.20 218.94 520.98 218.01 C 523.15 218.54 523.52 221.95 526.03 221.88 C 532.26 220.54 534.67 226.66 536.00 231.24 C 532.89 231.79 529.43 232.54 527.61 229.39 C 523.80 223.96 516.85 226.73 512.08 229.03 C 507.50 224.13 501.12 222.36 494.97 220.24 C 490.66 222.85 485.92 222.83 481.02 221.99 C 474.25 220.55 470.68 226.92 466.73 230.87 C 461.17 230.46 454.71 228.30 451.99 223.00 C 448.73 216.93 440.36 225.50 436.92 219.12 C 444.60 221.96 452.10 214.38 459.35 218.65 C 462.01 219.60 463.09 224.87 466.53 222.56 C 471.86 217.27 479.87 219.84 486.38 217.44 Z"/>
+            <path fill="#c07c46"
+                  d="M 101.79 221.77 C 106.52 217.20 111.19 224.54 116.36 224.53 C 124.54 223.75 128.78 234.49 137.30 231.34 C 144.31 229.70 149.76 220.58 157.09 222.77 C 149.01 225.19 150.82 233.76 149.15 239.85 C 151.03 243.44 151.60 247.49 152.70 251.28 C 158.08 251.44 159.05 256.99 161.12 260.98 C 163.97 258.17 167.86 257.05 171.15 255.17 C 174.57 247.95 180.58 242.46 184.63 235.68 C 187.04 232.05 180.40 235.26 178.28 234.60 C 171.90 232.40 168.74 226.00 161.75 225.19 C 167.38 225.68 174.20 225.10 177.34 230.77 C 181.33 230.80 183.77 227.95 187.92 229.15 C 188.21 231.97 188.58 234.80 189.05 237.60 C 184.82 248.53 172.83 258.25 176.11 271.00 L 147.29 271.00 C 147.29 266.10 143.53 262.74 140.91 259.05 C 143.28 260.18 146.92 262.60 148.94 259.70 C 149.67 253.47 145.70 248.14 143.28 242.76 C 142.00 240.46 138.80 236.25 136.20 239.16 C 131.73 242.06 136.48 247.00 136.07 251.02 C 132.57 246.18 128.42 252.58 130.52 256.62 C 132.73 261.62 127.29 267.18 122.37 266.74 C 118.59 265.67 115.65 266.44 115.81 271.00 L 115.14 271.00 C 115.39 266.96 110.85 262.21 115.23 259.22 C 119.50 256.24 113.32 249.51 117.74 246.68 C 121.02 242.46 126.95 242.91 130.91 239.79 C 129.61 232.93 120.63 229.51 114.30 229.75 C 113.08 226.50 110.27 224.52 106.85 224.09 C 100.67 223.33 100.71 232.72 95.35 234.42 C 88.64 237.42 84.43 227.83 77.73 230.74 C 72.00 233.29 65.87 234.73 60.06 237.01 C 61.52 242.22 67.20 243.90 69.58 248.16 C 68.84 255.90 68.68 263.98 64.88 271.00 L 52.81 271.00 C 54.50 257.67 54.14 244.20 54.91 230.80 C 64.13 230.98 73.01 228.37 81.87 226.15 C 88.13 235.36 96.97 227.79 101.79 221.77 Z"/>
+            <path fill="#db9d67"
+                  d="M 217.64 237.79 C 215.41 231.91 216.95 225.25 215.79 219.59 C 217.46 223.90 221.59 226.28 225.18 228.83 C 228.71 228.10 232.72 228.32 234.99 231.54 C 234.49 236.11 234.31 241.30 230.90 244.96 C 227.32 246.70 223.71 248.46 220.07 250.03 C 217.69 248.32 215.47 246.41 213.06 244.75 C 212.05 241.17 215.21 239.55 217.64 237.79 Z"/>
+            <path fill="#b76e3c"
+                  d="M 149.15 239.85 C 150.82 233.76 149.01 225.19 157.09 222.77 C 158.62 223.61 160.11 224.55 161.75 225.19 C 168.74 226.00 171.90 232.40 178.28 234.60 C 180.40 235.26 187.04 232.05 184.63 235.68 C 180.58 242.46 174.57 247.95 171.15 255.17 C 167.86 257.05 163.97 258.17 161.12 260.98 C 159.05 256.99 158.08 251.44 152.70 251.28 C 151.60 247.49 151.03 243.44 149.15 239.85 Z"/>
+            <path fill="#b6703c"
+                  d="M 95.35 234.42 C 100.71 232.72 100.67 223.33 106.85 224.09 C 110.27 224.52 113.08 226.50 114.30 229.75 C 120.63 229.51 129.61 232.93 130.91 239.79 C 126.95 242.91 121.02 242.46 117.74 246.68 C 113.32 249.51 119.50 256.24 115.23 259.22 C 110.85 262.21 115.39 266.96 115.14 271.00 L 64.88 271.00 C 68.68 263.98 68.84 255.90 69.58 248.16 C 67.20 243.90 61.52 242.22 60.06 237.01 C 65.87 234.73 72.00 233.29 77.73 230.74 C 84.43 227.83 88.64 237.42 95.35 234.42 Z"/>
+            <path fill="#d28f5a"
+                  d="M 354.16 223.81 C 358.92 228.43 362.30 235.40 369.25 236.76 C 370.55 242.65 373.91 247.79 377.36 252.65 C 382.40 257.22 378.96 265.09 380.02 271.00 L 378.05 271.00 C 376.41 267.66 375.22 264.08 373.03 261.05 C 372.30 253.22 369.72 241.26 360.78 239.23 C 358.91 233.71 351.83 230.92 354.16 223.81 Z"/>
+            <path fill="#464341"
+                  d="M 354.06 249.92 C 350.91 242.92 346.23 235.70 347.98 227.67 C 348.85 230.06 349.23 232.54 349.98 235.00 C 355.57 246.90 360.18 259.28 366.23 271.00 L 364.16 271.00 C 360.30 264.22 356.99 257.14 354.06 249.92 Z"
+                  opacity="0.15"/>
+            <path fill="#2e2c2b"
+                  d="M 250.44 228.72 C 251.42 243.77 242.90 258.17 235.78 271.00 L 233.61 271.00 C 240.45 260.63 245.32 249.02 247.95 236.88 C 248.88 234.54 249.52 232.10 250.17 229.68 L 250.44 228.72 Z"
+                  opacity="0.15"/>
+            <path fill="#b97846"
+                  d="M 240.17 233.87 C 244.39 235.19 246.68 231.05 250.17 229.68 C 249.52 232.10 248.88 234.54 247.95 236.88 C 242.21 247.57 238.29 259.37 230.88 269.15 C 225.11 261.36 230.71 247.43 240.29 243.27 C 245.47 240.40 236.77 237.06 240.17 233.87 Z"/>
+            <path fill="#d18f57"
+                  d="M 230.90 244.96 C 234.31 241.30 234.49 236.11 234.99 231.54 C 235.45 231.74 236.38 232.15 236.84 232.35 C 237.93 232.88 239.08 233.32 240.17 233.87 C 236.77 237.06 245.47 240.40 240.29 243.27 C 230.71 247.43 225.11 261.36 230.88 269.15 C 230.60 269.61 230.05 270.54 229.77 271.00 L 226.00 271.00 C 224.74 260.88 215.61 254.41 213.06 244.75 C 215.47 246.41 217.69 248.32 220.07 250.03 C 223.71 248.46 227.32 246.70 230.90 244.96 Z"/>
+            <path fill="#a76237"
+                  d="M 350.03 231.92 C 361.84 238.16 363.77 252.23 373.03 261.05 C 375.22 264.08 376.41 267.66 378.05 271.00 L 366.23 271.00 C 360.18 259.28 355.57 246.90 349.98 235.00 C 349.99 234.23 350.02 232.69 350.03 231.92 Z"/>
+            <path fill="#150e09"
+                  d="M 230.88 269.15 C 238.29 259.37 242.21 247.57 247.95 236.88 C 245.32 249.02 240.45 260.63 233.61 271.00 L 229.77 271.00 C 230.05 270.54 230.60 269.61 230.88 269.15 Z"
+                  opacity="0.15"/>
+            <path fill="#cd8a51"
+                  d="M 136.20 239.16 C 138.80 236.25 142.00 240.46 143.28 242.76 C 145.70 248.14 149.67 253.47 148.94 259.70 C 146.92 262.60 143.28 260.18 140.91 259.05 C 139.10 256.50 137.14 254.00 136.07 251.02 C 136.48 247.00 131.73 242.06 136.20 239.16 Z"/>
+            <path fill="#d1925a"
+                  d="M 176.11 271.00 C 172.83 258.25 184.82 248.53 189.05 237.60 C 189.57 240.31 189.63 243.09 190.17 245.80 C 189.09 248.69 186.89 250.85 184.91 253.12 C 184.15 256.40 187.80 257.45 189.68 259.29 C 189.47 261.74 188.31 264.54 190.36 266.56 C 195.17 264.68 194.42 268.70 195.08 271.00 L 176.11 271.00 Z"/>
+            <path fill="#ca8852"
+                  d="M 394.19 241.96 C 396.11 248.20 404.25 259.99 408.98 249.69 C 410.04 250.74 410.78 252.24 412.17 252.90 C 424.18 248.02 428.91 263.72 434.48 271.00 L 404.42 271.00 C 402.51 269.09 399.91 267.59 399.01 264.91 C 397.28 261.76 401.27 258.74 399.49 255.56 C 399.00 252.71 395.36 253.13 393.78 251.19 C 390.65 248.55 395.09 245.26 394.19 241.96 Z"/>
+            <path fill="#e1a56d"
+                  d="M 206.46 251.85 C 206.24 247.41 208.07 244.65 213.06 244.75 C 215.61 254.41 224.74 260.88 226.00 271.00 L 195.08 271.00 C 194.42 268.70 195.17 264.68 190.36 266.56 C 188.31 264.54 189.47 261.74 189.68 259.29 C 187.80 257.45 184.15 256.40 184.91 253.12 C 186.89 250.85 189.09 248.69 190.17 245.80 C 191.47 248.19 192.70 251.10 195.75 251.56 C 195.09 255.31 197.44 258.68 198.50 262.13 C 200.22 258.20 200.05 249.61 206.46 251.85 Z"/>
+            <path fill="#b7713b"
+                  d="M 130.52 256.62 C 128.42 252.58 132.57 246.18 136.07 251.02 C 137.14 254.00 139.10 256.50 140.91 259.05 C 143.53 262.74 147.29 266.10 147.29 271.00 L 115.81 271.00 C 115.65 266.44 118.59 265.67 122.37 266.74 C 127.29 267.18 132.73 261.62 130.52 256.62 Z"/>
+        </svg>
+    </defs>
+</svg>
+
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2598178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+</body>
+</html>

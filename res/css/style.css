@@ -1,0 +1,409 @@
+/*
+** reset styles
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    outline: 0;
+    font-size: 100%;
+    background: transparent;
+}
+
+dt {
+    margin-top: 15px;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset, img {
+    border: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, address, caption, cite, code, dfn, em, strong, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6, p, caption, th {
+    text-align: left;
+}
+
+input, textarea, select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    font-weight: inherit;
+}
+
+/* IE wide button uglyness fix */
+input.form-submit {
+    padding: .3em .9em;
+    width: 0;
+    overflow: visible;
+}
+
+input.form-submit[class] {
+    width: auto; /*ie ignores [class]*/
+}
+
+/*
+** HTML elements
+*/
+
+html {
+    background: #444;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    color: #222;
+    background: #444 url(/res/image/footer_bg_2.png);
+}
+
+a {
+    color: #00f;
+}
+
+p {
+    margin: 1em 0 1em 0;
+    text-align: left;
+}
+
+h1 {
+    font-size: 130%;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 120%;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 110%;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+td, th {
+    padding: 3px;
+}
+
+fieldset legend {
+    display: block;
+}
+
+/*
+** Page layout blocks / IDs
+*/
+
+#container {
+    width: 100%;
+    overflow: visible;
+    background: #fff;
+}
+
+#header {
+    padding: 0 60px;
+    background: #333 url(/res/image/buttons_bg.png);
+}
+
+#front {
+}
+
+#front-account {
+    width: 700px;
+    margin: 0 auto 0 auto;
+    padding: 20px 0;
+    vertical-align: top;
+    min-height: 600px;
+}
+
+#main {
+    padding: 25px 5% 35px 3%;
+    vertical-align: top;
+    min-height: 600px;
+    background: #fff url(/res/image/watermark.png) right top repeat-y;
+}
+
+#footer {
+    padding: 10px;
+    margin-bottom: 35px;
+    color: #fff;
+    background: #333 url(/res/image/footer_bg_1.png);
+}
+
+#footer a {
+    color: #fff;
+}
+
+/*
+** Common declarations for child classes of node, comment, block, box etc
+*/
+
+ul.links li {
+    padding: 0;
+    border: none;
+}
+
+ul.links li a {
+    color: #000;
+}
+
+#login, #login a {
+    color: #fff;
+}
+
+/*
+** Primary links CSS tabs
+*/
+
+div.primary-links {
+    width: 100%;
+    overflow: hidden;
+}
+
+ul.primary-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.primary-links li {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+ul.primary-links li a {
+    display: block;
+    width: 100px;
+    height: 22px;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 0 0 0;
+    background: url(/res/image/buttons.png) no-repeat -400px 0;
+}
+
+ul.primary-links li.first a {
+    padding: 8px 0 0 0;
+    background: url(/res/image/buttons.png) no-repeat -200px 0;
+}
+
+ul.primary-links li a:hover {
+    padding: 6px 0 2px 0;
+    background: url(/res/image/buttons.png) no-repeat -500px 0;
+}
+
+ul.primary-links li.first a:hover {
+    padding: 6px 0 2px 0;
+    background: url(/res/image/buttons.png) no-repeat -300px 0;
+}
+
+ul.primary-links li.active a {
+    padding: 6px 0 2px 0;
+    background: url(/res/image/buttons.png) no-repeat 0 0;
+}
+
+ul.primary-links li.first.active a {
+    padding: 6px 0 2px 0;
+    background: url(/res/image/buttons.png) no-repeat -100px 0;
+}
+
+/*
+** Contents
+*/
+
+.error {
+    color: #900;
+}
+
+.message {
+    color: #000;
+}
+
+.hidden {
+    display: none;
+}
+
+p.testimonial {
+    text-align: left;
+    padding: 15px 35px;
+    background: url(/res/image/quote.png) no-repeat;
+    font-style: italic;
+}
+
+p.testimonial span.testimonial-auto {
+    display: block;
+    text-align: right;
+}
+
+/*** System module ***/
+
+table.table {
+    margin: 0 auto 0 auto;
+    border: 1px solid #9bbb59;
+}
+
+table.table thead {
+    border: none;
+}
+
+table.table thead th {
+    text-align: left;
+    padding: 7px 3px;
+    background: #d9e2c5;
+    border-bottom: 1px solid #9bbb59;
+    border-right: 1px dotted #9bbb59;
+}
+
+table.table tbody {
+    border: none;
+}
+
+table.table tbody tr td {
+    padding: 3px 3px;
+    border-bottom: 1px solid #9bbb59;
+    border-right: 1px dotted #9bbb59;
+}
+
+table.table tbody tr.even td {
+    background: #e6eed5;
+}
+
+table.table tbody tr.odd td {
+    background: #fff;
+}
+
+table.table tbody tr.drag td {
+    background-color: #fc6;
+}
+
+table.table tbody tr.drag-previous td {
+    background-color: #ffd;
+}
+
+table.table tbody tr.active td {
+    background-color: #ddd;
+}
+
+/*** User Module ***/
+
+#form-container {
+}
+
+#form-column-left {
+    float: left;
+    width: 500px;
+}
+
+#form-column-right {
+    margin-left: 500px;
+    padding: 0 10% 0 20px;
+}
+
+div.form-header {
+    width: 470px;
+    padding: 15px 15px 10px 15px;
+    min-height: 70px;
+}
+
+div.header-bg {
+    background: url(/res/image/form_frame_02.png) left top no-repeat;
+}
+
+div.header-bg-tall {
+    background: url(/res/image/form_frame_01.png) left top no-repeat;
+}
+
+div.form-header p {
+    margin: 0 0 0 30px;
+}
+
+div.form-body {
+    width: 470px;
+    padding: 10px 15px 15px 15px;
+}
+
+div.body-bg {
+    background: url(/res/image/form_frame_04.png) bottom no-repeat;
+}
+
+div.body-bg-tall {
+    background: url(/res/image/form_frame_03.png) bottom no-repeat;
+}
+
+form.form {
+    padding: 0;
+}
+
+form.form fieldset ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+form.form fieldset ul li {
+    margin: 0;
+    padding: 5px;
+}
+
+form.form label {
+    display: block;
+    font-weight: bold;
+}
+
+form.form label.error {
+    display: block;
+    font-weight: normal;
+}
+
+form.form input.input {
+    font-size: 15pt;
+    font-style: normal;
+    width: 350px;
+    padding: 3px;
+}
+
+form.form span.field {
+    display: block;
+    margin: 0 0 0 30px;
+}
+
+form.form p {
+    text-align: left;
+    font-size: 80%;
+}
+
+em.ui {
+    font-style: normal;
+    padding: 2px 7px;
+    background: #eee;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}

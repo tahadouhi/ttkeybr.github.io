@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <id>https://www.keybr.com/feed.xml</id>
+ <link href="https://www.keybr.com/feed.xml" rel="self" type="application/atom+xml"/>
+ <link href="https://www.keybr.com/blog" rel="alternate"/>
+ <updated>2018-12-20T13:55:52+00:00</updated>
+ <title>keybr.com feed</title>
+ <author>
+  <name>Alex</name>
+  <email>k@keybr.com</email>
+ </author>
+ <entry>
+  <id>urn:uuid:7b542975-3217-449c-a95d-7a2e54ff1965</id>
+  <link href="https://www.keybr.com/blog/my-first-blog-post" rel="alternate"/>
+  <updated>2017-09-15T18:00:00+00:00</updated>
+  <title>My First Blog Post</title>
+  <summary type="html"><![CDATA[<p>This is a simple blog example.</p>]]></summary>
+ </entry>
+ <entry>
+  <id>urn:uuid:5b881878-7ecd-4c75-92fa-2e55aaf82c1c</id>
+  <link href="https://www.keybr.com/blog/introducing-text-tools" rel="alternate"/>
+  <updated>2018-05-17T11:00:00+00:00</updated>
+  <title>Introducing Text Tools</title>
+  <summary type="html"><![CDATA[<p><a href="/text-tools">Text Tools</a> is a new page in keybr. It provides a simple
+function to get some numbers about an arbitrary piece of text. Just paste any
+text fragment into the text field and observe some interesting statistics, like
+the number of characters and words, what are the most common words, etc.</p>]]></summary>
+ </entry>
+</feed>

@@ -1,0 +1,437 @@
+/* Reset styles */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    outline: 0;
+    font-size: 100%;
+    background: transparent;
+}
+
+dt {
+    margin-top: 15px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset, img {
+    border: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, address, caption, cite, code, dfn, em, strong, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6, p, caption, th {
+    text-align: left;
+}
+
+input, textarea, select {
+    font-family: 'Lato', sans-serif;
+    font-size: 11pt;
+    font-weight: inherit;
+}
+
+/* IE wide button uglyness fix */
+input.form-submit {
+    padding: .3em .9em;
+    width: 0;
+    overflow: visible;
+}
+
+input.form-submit[class] {
+    width: auto; /*ie ignores [class]*/
+}
+
+/* HTML elements */
+
+html {
+    background: #404343;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 11pt;
+    color: #234;
+    background: #404343;
+}
+
+a {
+    color: #4968ff;
+}
+
+p {
+    margin: 1em 0 1em 0;
+    text-align: left;
+}
+
+h1 {
+    font-size: 150%;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 135%;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 110%;
+    margin-bottom: 5px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+td, th {
+    padding: 3px;
+}
+
+fieldset legend {
+    display: block;
+}
+
+/* Page layout blocks / IDs */
+
+#container {
+    min-width: 960px;
+    overflow: visible;
+    background: #fff;
+}
+
+#header {
+    background: #6c716d url(/res/legacy/image/header_bg.png) left bottom repeat-x;
+}
+
+#header-menu {
+    margin: 0 60px;
+    height: 30px;
+}
+
+#primary-links {
+    height: 30px;
+    float: left;
+}
+
+#login {
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    color: #fff;
+}
+
+#login a {
+    color: #fff;
+}
+
+#front {
+}
+
+#game {
+    background: #e2f3fa;
+}
+
+#intro {
+    padding: 25px 20%;
+}
+
+#main {
+    overflow: hidden;
+    padding: 25px 5% 35px 3%;
+    vertical-align: top;
+    min-height: 600px;
+    background: #fff url(/res/legacy/image/watermark.png) right top repeat-y;
+}
+
+#footer {
+    overflow: hidden;
+    padding: 10px 60px 20px 60px;
+    color: #aaa;
+    font-size: 10pt;
+    background: #333 url(/res/legacy/image/footer_bg.png) left top repeat-x;
+}
+
+#footer a {
+    color: #aaa;
+}
+
+.banner {
+    min-height: 90px;
+    padding: 5px;
+    text-align: center;
+}
+
+/* Common declarations for child classes of node, comment, block, box etc */
+
+ul.links li {
+    padding: 0;
+    border: none;
+}
+
+ul.links li a {
+    color: #000;
+}
+
+/* Primary links CSS tabs */
+
+ul.primary-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.primary-links li {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+ul.primary-links li a {
+    background: url(/res/legacy/image/buttons.png) no-repeat;
+}
+
+ul.primary-links li a {
+    display: block;
+    width: 100px;
+    height: 22px;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 0 0 0;
+    background-position: -400px 0;
+}
+
+ul.primary-links li.first a {
+    padding: 8px 0 0 0;
+    background-position: -200px 0;
+}
+
+ul.primary-links li a:hover {
+    padding: 6px 0 2px 0;
+    background-position: -500px 0;
+}
+
+ul.primary-links li.first a:hover {
+    padding: 6px 0 2px 0;
+    background-position: -300px 0;
+}
+
+ul.primary-links li.active a {
+    padding: 6px 0 2px 0;
+    background-position: 0 0;
+}
+
+ul.primary-links li.first.active a {
+    padding: 6px 0 2px 0;
+    background-position: -100px 0;
+}
+
+/* Contents */
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+#footer .pull-right {
+    text-align: right;
+}
+
+.error {
+    color: #900;
+}
+
+.message {
+    color: #000;
+}
+
+.hidden {
+    display: none;
+}
+
+p.testimonial {
+    text-align: left;
+    padding: 15px 35px;
+    background: url(/res/legacy/image/quote.png) no-repeat;
+    font-style: italic;
+}
+
+p.testimonial span.testimonial-auto {
+    display: block;
+    text-align: right;
+}
+
+/*** System module ***/
+
+table.table {
+    margin: 0 auto 0 auto;
+    -webkit-box-shadow: 1px 1px 5px rgba(200, 220, 228, 0.75);
+    -moz-box-shadow: 1px 1px 5px rgba(200, 220, 228, 0.75);
+    box-shadow: 1px 1px 5px rgba(200, 220, 228, 0.75);
+}
+
+table.table thead th {
+    text-align: left;
+    padding: 7px 6px;
+    background: #dcf1f9;
+    font-size: 115%;
+}
+
+table.table tbody tr:nth-child(odd) {
+    background: #edf8ff;
+}
+
+table.table tbody tr:nth-child(even) {
+    background: #fff;
+}
+
+table.table tbody tr td {
+    padding: 5px 6px;
+    border-bottom: 1px solid #dcf1f9;
+}
+
+table.table th.number,
+table.table td.number {
+    text-align: right;
+}
+
+/*** User Module ***/
+
+#form-container {
+    overflow: hidden;
+}
+
+#form-column-left {
+    float: left;
+    width: 500px;
+}
+
+#form-column-right {
+    margin-left: 500px;
+    padding: 0 10% 0 20px;
+}
+
+form.form {
+    width: 470px;
+}
+
+form.form div.form-header {
+}
+
+form.form div.form-header p {
+    margin-left: 20pt;
+}
+
+form.form fieldset ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+form.form fieldset ul li {
+    margin: 0 0 1.5em 20pt;
+    padding: 0;
+}
+
+form.form label {
+    display: block;
+    margin: 0 0 1em -20pt;
+    padding: 0;
+    font-size: 111%;
+}
+
+form.form input.input {
+    font-size: 13pt;
+    font-style: normal;
+    width: 350px;
+    padding: 4px;
+}
+
+form.form fieldset p {
+    text-align: left;
+    font-size: 90%;
+}
+
+ol.history,
+ul.history {
+    list-style: none;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+ol.history li,
+ul.history li {
+    float: left;
+    margin: 0 1em 1em 0;
+    padding: 0;
+}
+
+table.calendar {
+    table-layout: fixed;
+    border: 1px solid #e7f5ff;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAIAAADZSiLoAAAAI0lEQVQImWN8+PwDAwODpDAXE4R6/vYb469fv56//cbAwAAAmycLq+Q8rrMAAAAASUVORK5CYII=);
+    cursor: default;
+}
+
+table.calendar caption {
+    text-align: center;
+    font-size: 90%;
+}
+
+table.calendar th,
+table.calendar td {
+    width: 11pt;
+    height: 11pt;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 60%;
+}
+
+table.calendar th {
+    color: #9ca;
+}
+
+table.calendar td {
+    background: #fff;
+    color: #cef;
+}
+
+table.calendar td.s1 {
+    background: #a6b9cd;
+    color: #fff;
+}
+
+table.calendar td.s2 {
+    background: #8493a7;
+    color: #fff;
+}
+
+table.calendar td.s3 {
+    background: #657687;
+    color: #fff;
+}
+
+table.calendar td.z {
+    background: transparent;
+}

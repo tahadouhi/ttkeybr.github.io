@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xliff version="1.0" xml:lang="fr">
+
+  <file datatype="plaintext" original="keybr.fla" source-language="EN">
+    <header></header>
+    <body>
+      <trans-unit id="001" resname="IDS_CHART_AGENDA_ERRORS_LBL">
+        <source>Erreurs</source>
+      </trans-unit>
+      <trans-unit id="002" resname="IDS_CHART_AGENDA_SCORE_LBL">
+        <source>Score</source>
+      </trans-unit>
+      <trans-unit id="003" resname="IDS_CHART_AGENDA_SPEED_LBL">
+        <source>Vitesse</source>
+      </trans-unit>
+      <trans-unit id="004" resname="IDS_CHART_AVG_SCORE_LBL">
+        <source>Score moyen:</source>
+      </trans-unit>
+      <trans-unit id="005" resname="IDS_CHART_AVG_SPEED_LBL">
+        <source>Vitesse moyenne:</source>
+      </trans-unit>
+      <trans-unit id="006" resname="IDS_CHART_BTN">
+        <source>Graphique</source>
+      </trans-unit>
+      <trans-unit id="007" resname="IDS_CHART_BTN_TT">
+        <source>Voir le graphique avec l&apos;historique de votre vitesse de frappe, afin de voir comment vous avez progressé au fil du temps.</source>
+      </trans-unit>
+      <trans-unit id="008" resname="IDS_CHART_EXERCISES_LBL">
+        <source>Exercices: </source>
+      </trans-unit>
+      <trans-unit id="009" resname="IDS_CHART_INFO_TT">
+        <source>Montre comment votre vitesse de frappe a changé au fil du temps.</source>
+      </trans-unit>
+      <trans-unit id="010" resname="IDS_CHART_NO_USER_LBL">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="011" resname="IDS_CHART_NOT_ENOUGH_DATA_LBL">
+        <source>Il n&apos;y a pas suffisamment de données.
+Vous devez remplir au moins deux exercices pour que le graphique soit montré.</source>
+      </trans-unit>
+      <trans-unit id="012" resname="IDS_CHART_NOT_LOGGED_IN_LBL">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="013" resname="IDS_CHART_TOP_SCORE_LBL">
+        <source>Meilleur score:</source>
+      </trans-unit>
+      <trans-unit id="014" resname="IDS_CHART_TOP_SPEED_LBL">
+        <source>Meilleur vitesse:</source>
+      </trans-unit>
+      <trans-unit id="015" resname="IDS_CHART_TOTAL_TIME_LBL">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="016" resname="IDS_CLOSE_BTN">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="017" resname="IDS_CUSTOM_TEXT_BTN">
+        <source>Texte personnalisé</source>
+      </trans-unit>
+      <trans-unit id="018" resname="IDS_CUSTOM_TEXT_BTN_TT">
+        <source>Entrainez-vous en tapant un texte personnalisé. Utilisez cette option si vous pensez que vous êtes un utilisateur avancé et que taper du texte aléatoire vous ralentit.</source>
+      </trans-unit>
+      <trans-unit id="019" resname="IDS_ERRORS_LBL">
+        <source>Erreurs:</source>
+      </trans-unit>
+      <trans-unit id="020" resname="IDS_ERRORS_LBL_TT">
+        <source>Dactylographie précision, est le nombre de fautes que vous avez accomplis dans l&apos;exercice actuel. Essayez de maintenir ce nombre au minimum. Pour les novices, il est important de développer d&apos;abord la précision de frappe et ensuite, seulement, de développer la vitesse de frappe.</source>
+      </trans-unit>
+      <trans-unit id="021" resname="IDS_FRAGMENT_NEXT_TT">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="022" resname="IDS_FRAGMENT_PREV_TT">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="023" resname="IDS_HIGHLIGHT_ERRORS_TT">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="024" resname="IDS_INAPPROPRIATE_WORDS">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="025" resname="IDS_INFORMER_PAUSE_MESSAGE">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="026" resname="IDS_INFORMER_PAUSE_TITLE">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="027" resname="IDS_INFORMER_REQUIREACCOUNT_MESSAGE">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="028" resname="IDS_INFORMER_REQUIREACCOUNT_TITLE">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="029" resname="IDS_JABBERWOCKY">
+        <source>Il était grilheure, et les blézilles visclages
+Fougyraient dans la tondure et s’y vortillaient.
+Les sarpeluettes étaient en pitreux bilage,
+Et les chéloplies orphues mupifflaient.
+&gt;&gt;&gt;
+&quot;Prends bien garde au méchant Balbuvrac, mon enfant !
+A ses griffes qui happent, à sa gueule qui mord !
+Méfie-toi de l’oiseau Pioupiou, et fuis devant
+Le très sulphurax élastitraptor !&quot;
+&gt;&gt;&gt;
+Emportant avec lui son estrocante épée,
+Il partit en quête du monstre refroussant.
+Contre l’arbre Toumtoum, il alla s’adosser
+Et se mit à réfléchir un instant.
+&gt;&gt;&gt;
+Il était encore tout à ses pensées ruflantes
+Quand le grand Balbuvrac, les yeux de flammes emplis,
+Fendit l’épense forêt à pas pestifflants
+En ponctuant sa course de bêglodies.
+&gt;&gt;&gt;
+Et une ! Et deux ! Et tiens ! Et vlan ! Sans une trève,
+L’estrocante épée fit maintes mortelles entailles.
+Une fois la bête à terre, il lui ôta la tête,
+Et retourna galomphant au bercail.
+&gt;&gt;&gt;
+« Le grand Balbuvrac par ta lame est-il tombé ?
+Viens vite dans mes bras, mon enfant béhardois !
+Ô festieuse journée ! Ah-la-la-ï-yé! »
+Glouffa le père dans un élan de joie.
+&gt;&gt;&gt;
+Il était grilheure, et les blézilles visclages
+Fougyraient dans la tondure et s’y vortillaient.
+Les sarpeluettes étaient en pitreux bilage,
+Et les chéloplies orphues mupifflaient.</source>
+      </trans-unit>
+      <trans-unit id="030" resname="IDS_KEYMAP_BTN">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="031" resname="IDS_KEYMAP_BTN_TT">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="032" resname="IDS_LANG_ENGLISH">
+        <source>English</source>
+      </trans-unit>
+      <trans-unit id="033" resname="IDS_LANG_FRENCH">
+        <source>Français</source>
+      </trans-unit>
+      <trans-unit id="034" resname="IDS_LANG_GERMAN">
+        <source>Deutsch</source>
+      </trans-unit>
+      <trans-unit id="035" resname="IDS_LANG_ITALIAN">
+        <source>Italiano</source>
+      </trans-unit>
+      <trans-unit id="036" resname="IDS_LANG_PORTUGUESE">
+        <source>Português</source>
+      </trans-unit>
+      <trans-unit id="037" resname="IDS_LANG_RUSSIAN">
+        <source>Русский</source>
+      </trans-unit>
+      <trans-unit id="038" resname="IDS_LANG_SPANISH">
+        <source>Español</source>
+      </trans-unit>
+      <trans-unit id="039" resname="IDS_LANGUAGE_BTN_TT">
+        <source>Basculer vers la langue désirée et la disposition du clavier. </source>
+      </trans-unit>
+      <trans-unit id="040" resname="IDS_LOADER_CONNECTING">
+        <source>Connexion...</source>
+      </trans-unit>
+      <trans-unit id="041" resname="IDS_LOADER_ERROR">
+        <source>Erreur... Rechargez cette page et réessayez.</source>
+      </trans-unit>
+      <trans-unit id="042" resname="IDS_LOADER_LOADING">
+        <source>Chargement...</source>
+      </trans-unit>
+      <trans-unit id="043" resname="IDS_NOTIFY_TOP_SCORE_RECORD">
+        <source>Record du meilleur score!!!</source>
+      </trans-unit>
+      <trans-unit id="044" resname="IDS_NOTIFY_TOP_SPEED_RECORD">
+        <source>Record de la meilleur vitesse!!!</source>
+      </trans-unit>
+      <trans-unit id="045" resname="IDS_RANDOM_TEXT_BTN">
+        <source>Texte aléatoire</source>
+      </trans-unit>
+      <trans-unit id="046" resname="IDS_RANDOM_TEXT_BTN_TT">
+        <source>Entrainez-vous en tapant du texte généré à partir des lettres aléatoires. L&apos;avantage de ce tutoriel est de vous permettre d&apos;apprendre les touches du clavier ligne par ligne. Commencez par taper des mots composés de lettres située sur la ligne avec la touche &quot;Verr.Maj&quot;, puis ajouter les lignes avec la &quot;Tab&quot; et la touche &quot;Maj&quot;.</source>
+      </trans-unit>
+      <trans-unit id="047" resname="IDS_SETTINGS_CUSTOM_TEXT_BTN">
+        <source>Texte personnalisé</source>
+      </trans-unit>
+      <trans-unit id="048" resname="IDS_SETTINGS_CUSTOM_TEXT_BTN_TT">
+        <source>Si vous voulez taper des mots réel, fournissez votre texte à taper.</source>
+      </trans-unit>
+      <trans-unit id="049" resname="IDS_SETTINGS_CUSTOM_TEXT_LBL">
+        <source>Coller le texte personnalisé ici</source>
+      </trans-unit>
+      <trans-unit id="050" resname="IDS_SETTINGS_LANGUAGE_LBL">
+        <source>Choisir la langue de votre préférence</source>
+      </trans-unit>
+      <trans-unit id="051" resname="IDS_SETTINGS_LAYOUT_LBL">
+        <source>Choisir la disposition du clavier spécifique à votre langue et votre pays</source>
+      </trans-unit>
+      <trans-unit id="052" resname="IDS_SETTINGS_LEVEL_LBL">
+        <source>Choisissez niveau approprié</source>
+      </trans-unit>
+      <trans-unit id="053" resname="IDS_SETTINGS_LEVEL1_BNT">
+        <source>Niveau 1</source>
+      </trans-unit>
+      <trans-unit id="054" resname="IDS_SETTINGS_LEVEL1_BTN_TT">
+        <source>Génère aléatoirement du texte aléatoire au moyen des lettres situées sur la ligne de la touche &quot;Verr.maj&quot;.</source>
+      </trans-unit>
+      <trans-unit id="055" resname="IDS_SETTINGS_LEVEL1_NAME">
+        <source>Texte aléatoire, Niveau 1</source>
+      </trans-unit>
+      <trans-unit id="056" resname="IDS_SETTINGS_LEVEL2_BNT">
+        <source>Niveau 2</source>
+      </trans-unit>
+      <trans-unit id="057" resname="IDS_SETTINGS_LEVEL2_BTN_TT">
+        <source>Génère aléatoirement du texte aléatoire au moyen des lettres situées sur la ligne de la touche &quot;Verr.maj&quot; et sur la ligne de la touche &quot;Tab&quot;.</source>
+      </trans-unit>
+      <trans-unit id="058" resname="IDS_SETTINGS_LEVEL2_NAME">
+        <source>Texte aléatoire, Niveau 2</source>
+      </trans-unit>
+      <trans-unit id="059" resname="IDS_SETTINGS_LEVEL3_BNT">
+        <source>Niveau 3</source>
+      </trans-unit>
+      <trans-unit id="060" resname="IDS_SETTINGS_LEVEL3_BTN_TT">
+        <source>Génère aléatoirement du texte aléatoire au moyen des lettres situées sur les lignes des touches &quot;Verr.maj&quot;, &quot;Tab&quot; et &quot;Maj&quot;.</source>
+      </trans-unit>
+      <trans-unit id="061" resname="IDS_SETTINGS_LEVEL3_NAME">
+        <source>Texte aléatoire, Niveau 3</source>
+      </trans-unit>
+      <trans-unit id="062" resname="IDS_SETTINGS_RANDOM_TEXT_BTN">
+        <source>Texte aléatoire</source>
+      </trans-unit>
+      <trans-unit id="063" resname="IDS_SETTINGS_RANDOM_TEXT_BTN_TT">
+        <source>Génère aléatoirement du texte en utilisant les lettres du niveau actuel. Dans ce mode, vous pouvez apprendre les touches ligne par ligne. Commencez avec la ligne de la touche &quot;Verr.Maj&quot;, puis ajoutez les lignes des touches &quot;Tab&quot; et &quot;Maj&quot;.</source>
+      </trans-unit>
+      <trans-unit id="064" resname="IDS_SETTINGS_TEXT_SOURCE_LBL">
+        <source>Choisissez la source du texte</source>
+      </trans-unit>
+      <trans-unit id="065" resname="IDS_SETTINGS_TUTORIAL_LEVEL_LBL">
+        <source>Choisissez le niveau approprié</source>
+      </trans-unit>
+      <trans-unit id="066" resname="IDS_SETTINGS_WEBFEED_TEXT_BTN">
+        <source>Site Web/Blog</source>
+      </trans-unit>
+      <trans-unit id="067" resname="IDS_SETTINGS_WEBFEED_TEXT_BTN_TT">
+        <source></source>
+      </trans-unit>
+      <trans-unit id="068" resname="IDS_SETTINGS_WEBFEED_URL_LBL">
+        <source>Choisissez l&apos;url du flux Web</source>
+      </trans-unit>
+      <trans-unit id="069" resname="IDS_SPEED_LBL">
+        <source>Vitesse:</source>
+      </trans-unit>
+      <trans-unit id="070" resname="IDS_SPEED_LBL_TT">
+        <source>Vitesse de frappe mesurée en mots par minute. Un mot est normalisé à cinq caractères ou touches du clavier. Une dactylographe moyenne atteindra 50 à 70 mots par minute, tandis que certains metiers peuvent en exiger 80 à 95. Certaines dactylographes avancées travaillent à des vitesses supérieures à 120.</source>
+      </trans-unit>
+      <trans-unit id="071" resname="IDS_START_BNT">
+        <source>Commencer</source>
+      </trans-unit>
+      <trans-unit id="072" resname="IDS_SUGGESTIONS_LBL">
+        <source>Envoyez vos commentaires et suggestions à</source>
+      </trans-unit>
+      <trans-unit id="073" resname="IDS_TEXT_BOARD_INFO_TT">
+        <source>Ce texte est généré pour enseigner la dactylographie. Il contient des caractères du tutoriel actuel. Tapez de ce texte en utilisant votre clavier. Le clavier virtuel indique que vous tapez correctement.</source>
+      </trans-unit>
+      <trans-unit id="074" resname="IDS_TUTORIAL_BTN_TT">
+        <source>Basculer vers un autre tutoriel. Avec chaque tutoriel, vous découvrez des touches supplémentaires, ligne par ligne. Commencez par le plus simple des tutoriel et passez au prochain tutorial si vous vous sentez performant avec l&apos;actuel. Ou fournissez votre texte à taper.</source>
+      </trans-unit>
+      <trans-unit id="075" resname="IDS_VIRTUAL_KEYBOARD_INFO_TT">
+        <source>Utilisez ce clavier virtuel pour trouver les touches. Essayez de ne pas regarder le clavier réel. La prochaine touche est mise en évidence en vert. Lorsque vous manquez une touche, elle est affichée en rouge.</source>
+      </trans-unit>
+    </body>
+  </file>
+
+</xliff>

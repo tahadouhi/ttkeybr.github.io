@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xliff version="1.0" xml:lang="en">
+
+  <file datatype="plaintext" original="keybr.fla" source-language="EN">
+    <header></header>
+    <body>
+      <trans-unit id="001" resname="IDS_CHART_AGENDA_ERRORS_LBL">
+        <source>Errors</source>
+      </trans-unit>
+      <trans-unit id="002" resname="IDS_CHART_AGENDA_SCORE_LBL">
+        <source>Score</source>
+      </trans-unit>
+      <trans-unit id="003" resname="IDS_CHART_AGENDA_SPEED_LBL">
+        <source>Speed</source>
+      </trans-unit>
+      <trans-unit id="004" resname="IDS_CHART_AVG_SCORE_LBL">
+        <source>Average score:</source>
+      </trans-unit>
+      <trans-unit id="005" resname="IDS_CHART_AVG_SPEED_LBL">
+        <source>Average speed:</source>
+      </trans-unit>
+      <trans-unit id="006" resname="IDS_CHART_BTN">
+        <source>Chart</source>
+      </trans-unit>
+      <trans-unit id="007" resname="IDS_CHART_BTN_TT">
+        <source>Show chart with the history of your typing speed to see how you have been progressing over time.</source>
+      </trans-unit>
+      <trans-unit id="008" resname="IDS_CHART_EXERCISES_LBL">
+        <source>Exercises:</source>
+      </trans-unit>
+      <trans-unit id="009" resname="IDS_CHART_INFO_TT">
+        <source>This chart shows how your typing speed has been changing over time.</source>
+      </trans-unit>
+      <trans-unit id="010" resname="IDS_CHART_NO_USER_LBL">
+        <source>Please connect with Facebook or sign-up to enable this chart.
+Then we will be able to track your progress, high scores
+and share it with your friends.</source>
+      </trans-unit>
+      <trans-unit id="011" resname="IDS_CHART_NOT_ENOUGH_DATA_LBL">
+        <source>Not enough data.
+You need to complete at least two exercises for chart to be shown.</source>
+      </trans-unit>
+      <trans-unit id="012" resname="IDS_CHART_NOT_LOGGED_IN_LBL">
+        <source>You are not logged in. Chart is only available for registered users.</source>
+      </trans-unit>
+      <trans-unit id="013" resname="IDS_CHART_TOP_SCORE_LBL">
+        <source>Top score:</source>
+      </trans-unit>
+      <trans-unit id="014" resname="IDS_CHART_TOP_SPEED_LBL">
+        <source>Top speed:</source>
+      </trans-unit>
+      <trans-unit id="015" resname="IDS_CHART_TOTAL_TIME_LBL">
+        <source>Total time:</source>
+      </trans-unit>
+      <trans-unit id="016" resname="IDS_CLOSE_BTN">
+        <source>Close</source>
+      </trans-unit>
+      <trans-unit id="017" resname="IDS_CUSTOM_TEXT_BTN">
+        <source>Custom text</source>
+      </trans-unit>
+      <trans-unit id="018" resname="IDS_CUSTOM_TEXT_BTN_TT">
+        <source>Practice typing custom text. Use this option if you think you are an advanced user and typing random text slows you down.</source>
+      </trans-unit>
+      <trans-unit id="019" resname="IDS_ERRORS_LBL">
+        <source>Errors:</source>
+      </trans-unit>
+      <trans-unit id="020" resname="IDS_ERRORS_LBL_TT">
+        <source>Typing accuracy is the number of typos you have made in the current exercise. Try to keep this number to a minimum. For novices it is important to develop typing accuracy first and only then typing speed.</source>
+      </trans-unit>
+      <trans-unit id="021" resname="IDS_FRAGMENT_NEXT_TT">
+        <source>Skip current text fragment (Ctrl-Right Arrow)</source>
+      </trans-unit>
+      <trans-unit id="022" resname="IDS_FRAGMENT_PREV_TT">
+        <source>Replay previous text fragment (Ctlr-Left Arrow)</source>
+      </trans-unit>
+      <trans-unit id="023" resname="IDS_HIGHLIGHT_ERRORS_TT">
+        <source>Enable or disable highlighting of previously mistyped letters to see when mistakes are coming.</source>
+      </trans-unit>
+      <trans-unit id="024" resname="IDS_INAPPROPRIATE_WORDS">
+        <source>arse, arses, ass, asses, asshole, assholes, assholism, bang, banging, banger, bastard, bastards, bitch, bitches, bitching, bullshit, cock, cocks, crap, craps, craping, cunt, cunts, damn, dick, dicks, dickhead, dickheads, dike, filth, filths, fuck, fucks, fucking, fucker, f*ck, f*cks, f*cking, f*cker, motherfucker, motherfuckers, nigger, niggers, niggerz, paki, piss, pisses, pissing, pisser, poop, prick, pussy, shag, shit, shits, shity, slut, sluts, slag, twat, whore, whores</source>
+      </trans-unit>
+      <trans-unit id="025" resname="IDS_INFORMER_PAUSE_MESSAGE">
+        <source>Top speed: &lt;b&gt;{maxSpeed}&lt;/b&gt;, average speed: &lt;b&gt;{avgSpeed}&lt;/b&gt;
+Today progress: &lt;b&gt;{speedChange}&lt;/b&gt;
+Total time spent: &lt;b&gt;{totalTime}&lt;/b&gt;
+</source>
+      </trans-unit>
+      <trans-unit id="026" resname="IDS_INFORMER_PAUSE_TITLE">
+        <source>Paused (click to continue)</source>
+      </trans-unit>
+      <trans-unit id="027" resname="IDS_INFORMER_REQUIREACCOUNT_MESSAGE">
+        <source>Thank you for evaluating keybr.com, the trial period is over.
+Please register or login to continue. Then you will be able to unlock extra features and track your learning progress day by day.</source>
+      </trans-unit>
+      <trans-unit id="028" resname="IDS_INFORMER_REQUIREACCOUNT_TITLE">
+        <source>Please register or login to continue</source>
+      </trans-unit>
+      <trans-unit id="029" resname="IDS_JABBERWOCKY">
+        <source>Jabberwocky
+by Lewis Carroll
+&gt;&gt;&gt;
+Twas brillig, and the slithy toves
+Did gyre and gimble in the wabe:
+All mimsy were the borogoves,
+And the mome raths outgrabe.
+&gt;&gt;&gt;
+&quot;Beware the Jabberwock, my son!
+The jaws that bite, the claws that catch!
+Beware the Jubjub bird, and shun
+The frumious Bandersnatch!&quot;
+&gt;&gt;&gt;
+He took his vorpal sword in hand:
+Long time the manxome foe he sought-
+So rested he by the Tumtum tree,
+And stood awhile in thought.
+&gt;&gt;&gt;
+And, as in uffish thought he stood,
+The Jabberwock, with eyes of flame,
+Came whiffling through the tulgey wood,
+And burbled as it came!
+&gt;&gt;&gt;
+One, two! One, two! And through and through
+The vorpal blade went snicker-snack!
+He left it dead, and with its head
+He went galumphing back.
+&gt;&gt;&gt;
+&quot;And hast thou slain the Jabberwock?
+Come to my arms, my beamish boy!
+O frabjous day! Callooh! Callay!&quot;
+He chortled in his joy.
+&gt;&gt;&gt;
+&apos;Twas brillig, and the slithy toves
+Did gyre and gimble in the wabe:
+All mimsy were the borogoves,
+And the mome raths outgrabe.&quot;</source>
+      </trans-unit>
+      <trans-unit id="030" resname="IDS_KEYMAP_BTN">
+        <source>Key Map</source>
+      </trans-unit>
+      <trans-unit id="031" resname="IDS_KEYMAP_BTN_TT">
+        <source>Display map of the most pressed keys.</source>
+      </trans-unit>
+      <trans-unit id="032" resname="IDS_LANG_ENGLISH">
+        <source>English</source>
+      </trans-unit>
+      <trans-unit id="033" resname="IDS_LANG_FRENCH">
+        <source>Français</source>
+      </trans-unit>
+      <trans-unit id="034" resname="IDS_LANG_GERMAN">
+        <source>Deutsch</source>
+      </trans-unit>
+      <trans-unit id="035" resname="IDS_LANG_ITALIAN">
+        <source>Italiano</source>
+      </trans-unit>
+      <trans-unit id="036" resname="IDS_LANG_PORTUGUESE">
+        <source>Português</source>
+      </trans-unit>
+      <trans-unit id="037" resname="IDS_LANG_RUSSIAN">
+        <source>Русский</source>
+      </trans-unit>
+      <trans-unit id="038" resname="IDS_LANG_SPANISH">
+        <source>Español</source>
+      </trans-unit>
+      <trans-unit id="039" resname="IDS_LANGUAGE_BTN_TT">
+        <source>Switch to the preferred language and keyboard layout.</source>
+      </trans-unit>
+      <trans-unit id="040" resname="IDS_LOADER_CONNECTING">
+        <source>Connecting...</source>
+      </trans-unit>
+      <trans-unit id="041" resname="IDS_LOADER_ERROR">
+        <source>Error... Reload this page and try again.</source>
+      </trans-unit>
+      <trans-unit id="042" resname="IDS_LOADER_LOADING">
+        <source>Loading...</source>
+      </trans-unit>
+      <trans-unit id="043" resname="IDS_NOTIFY_TOP_SCORE_RECORD">
+        <source>TOP SCORE RECORD!!!</source>
+      </trans-unit>
+      <trans-unit id="044" resname="IDS_NOTIFY_TOP_SPEED_RECORD">
+        <source>TOP SPEED RECORD!!!</source>
+      </trans-unit>
+      <trans-unit id="045" resname="IDS_RANDOM_TEXT_BTN">
+        <source>Random text</source>
+      </trans-unit>
+      <trans-unit id="046" resname="IDS_RANDOM_TEXT_BTN_TT">
+        <source>Practice typing text generated from random letters. The advantage of this tutorial is that you can learn keyboard keys row by row. Start typing words composed from letters from the Caps Lock row, then include Tab and Shift rows.</source>
+      </trans-unit>
+      <trans-unit id="047" resname="IDS_SETTINGS_CUSTOM_TEXT_BTN">
+        <source>Custom text</source>
+      </trans-unit>
+      <trans-unit id="048" resname="IDS_SETTINGS_CUSTOM_TEXT_BTN_TT">
+        <source>If you want to type real words, provide your text to type out.</source>
+      </trans-unit>
+      <trans-unit id="049" resname="IDS_SETTINGS_CUSTOM_TEXT_LBL">
+        <source>Paste custom text here</source>
+      </trans-unit>
+      <trans-unit id="050" resname="IDS_SETTINGS_LANGUAGE_LBL">
+        <source>Choose language of your preferrence</source>
+      </trans-unit>
+      <trans-unit id="051" resname="IDS_SETTINGS_LAYOUT_LBL">
+        <source>Choose keyboard layout specific to your language and country</source>
+      </trans-unit>
+      <trans-unit id="052" resname="IDS_SETTINGS_LEVEL_LBL">
+        <source>Choose appropriate level</source>
+      </trans-unit>
+      <trans-unit id="053" resname="IDS_SETTINGS_LEVEL1_BNT">
+        <source>Level 1</source>
+      </trans-unit>
+      <trans-unit id="054" resname="IDS_SETTINGS_LEVEL1_BTN_TT">
+        <source>Generate random text using letters from the Caps Lock row.</source>
+      </trans-unit>
+      <trans-unit id="055" resname="IDS_SETTINGS_LEVEL1_NAME">
+        <source>Random text, Level 1</source>
+      </trans-unit>
+      <trans-unit id="056" resname="IDS_SETTINGS_LEVEL2_BNT">
+        <source>Level 2</source>
+      </trans-unit>
+      <trans-unit id="057" resname="IDS_SETTINGS_LEVEL2_BTN_TT">
+        <source>Generate random text using letters from the Caps Lock and Tab row.</source>
+      </trans-unit>
+      <trans-unit id="058" resname="IDS_SETTINGS_LEVEL2_NAME">
+        <source>Rantom text, Level 2</source>
+      </trans-unit>
+      <trans-unit id="059" resname="IDS_SETTINGS_LEVEL3_BNT">
+        <source>Level 3</source>
+      </trans-unit>
+      <trans-unit id="060" resname="IDS_SETTINGS_LEVEL3_BTN_TT">
+        <source>Generate random text using letters from the Caps Lock, Tab and Shift row.</source>
+      </trans-unit>
+      <trans-unit id="061" resname="IDS_SETTINGS_LEVEL3_NAME">
+        <source>Random text, Level 3</source>
+      </trans-unit>
+      <trans-unit id="062" resname="IDS_SETTINGS_RANDOM_TEXT_BTN">
+        <source>Random text</source>
+      </trans-unit>
+      <trans-unit id="063" resname="IDS_SETTINGS_RANDOM_TEXT_BTN_TT">
+        <source>Generate random text using letter from the current level. In this mode you can learn keys row by row. Begin with Caps Lock row, then add Tab and Shift row.</source>
+      </trans-unit>
+      <trans-unit id="064" resname="IDS_SETTINGS_TEXT_SOURCE_LBL">
+        <source>Choose text source</source>
+      </trans-unit>
+      <trans-unit id="065" resname="IDS_SETTINGS_TUTORIAL_LEVEL_LBL">
+        <source>Choose appropriate level</source>
+      </trans-unit>
+      <trans-unit id="066" resname="IDS_SETTINGS_WEBFEED_TEXT_BTN">
+        <source>Web Site/Blog</source>
+      </trans-unit>
+      <trans-unit id="067" resname="IDS_SETTINGS_WEBFEED_TEXT_BTN_TT">
+        <source>Use content of a Blog/Web Feed as text source.</source>
+      </trans-unit>
+      <trans-unit id="068" resname="IDS_SETTINGS_WEBFEED_URL_LBL">
+        <source>Choose web feed URL</source>
+      </trans-unit>
+      <trans-unit id="069" resname="IDS_SPEED_LBL">
+        <source>Speed:</source>
+      </trans-unit>
+      <trans-unit id="070" resname="IDS_SPEED_LBL_TT">
+        <source>Typing speed measured in words per minute. A word is standardized to five characters or keystrokes. An average touch typist reaches 50 to 70 words per minute, while some positions can require 80 to 95. Some advanced typists work at speeds above 120.</source>
+      </trans-unit>
+      <trans-unit id="071" resname="IDS_START_BNT">
+        <source>Start</source>
+      </trans-unit>
+      <trans-unit id="072" resname="IDS_SUGGESTIONS_LBL">
+        <source>Send your comments and suggestions to</source>
+      </trans-unit>
+      <trans-unit id="073" resname="IDS_TEXT_BOARD_INFO_TT">
+        <source>This text is generated to teach touch typing. It contains characters from the current tutorial. Type this text using your keyboard. The board shows that you type correctly.</source>
+      </trans-unit>
+      <trans-unit id="074" resname="IDS_TUTORIAL_BTN_TT">
+        <source>Switch to another tutorial. With each tutorial you learn additional keys, row by row. Start from the simplest tutorial and move on to the next tutorial when you feel proficient with the current one. Or provide your text to type out.</source>
+      </trans-unit>
+      <trans-unit id="075" resname="IDS_VIRTUAL_KEYBOARD_INFO_TT">
+        <source>Use this virtual keyboard to find keys. Try not to look at the real keyboard. The next key is highlighted in green. When you miss a key it gets highlighted in red.</source>
+      </trans-unit>
+    </body>
+  </file>
+
+</xliff>
